@@ -1,0 +1,2 @@
+class LegendQuiz < ApplicationRecord
+end
