@@ -1,0 +1,2 @@
+class LegendQuizzesController < ApplicationController
+end
