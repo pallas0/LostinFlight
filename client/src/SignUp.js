@@ -1,8 +1,12 @@
 import React from 'react'
+import Quiz from './Quiz'
 
 function SignUp() {
   return (
-    <div>SignUp</div>
+    <div>
+        <button>SignUp</button>
+
+        </div>
   )
 }
 
