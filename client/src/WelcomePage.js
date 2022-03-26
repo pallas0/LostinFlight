@@ -7,9 +7,9 @@ import Login from './Login.js';
 function WelcomePage() {
   return (
     <div>
-      <SignUp/>
-      <Login />
-        WelcomePage
+        <h1>WelcomePage</h1>
+        <SignUp/>
+        <Login />
     </div>
   )
 }
