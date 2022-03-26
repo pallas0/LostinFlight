@@ -1,8 +1,11 @@
 import React from 'react'
+import BirdCardContainer from './BirdCardContainer'
+import BirdProfInfo from './BirdProfInfo'
 
 function AlkonistProf() {
   return (
-    <div>AlkonistProf</div>
+    <div>AlkonistProf
+    </div>
   )
 }
 
