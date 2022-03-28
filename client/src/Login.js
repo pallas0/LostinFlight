@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Button from 'react-bootstrap/Button';
 
 function Login({onLogin}) {
   const [username, setUsername] = useState("")
@@ -26,8 +27,8 @@ function Login({onLogin}) {
                 onChange={(e) => setUsername(e.target.value)} />
             </label>
         </form>
-     <button>Login</button>
-     <button onClick={handleSubmit}>Login</button>
+
+     <Button onClick={handleSubmit}>Login</Button>
         
     </div>
   )
