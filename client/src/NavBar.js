@@ -1,9 +1,15 @@
 import React from 'react'
 
-function NavBar() {
+function NavBar({onLogout}) {
+    function handleLogout() {
+        fetch("/logout", {
+            method: "DELETE",
+        }).then(() => onLogout(null));
+    }
+
   return (
     <div>
-        <button>Logout</button>
+        <button onClick={handleLogout}>Logout</button>
     </div>
   )
 }

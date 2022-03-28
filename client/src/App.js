@@ -22,7 +22,7 @@ function App() {
 
   return (
    <div>
-     <NavBar/>
+     <NavBar onLogout={setUsername}/>
      <WelcomePage onLogin={setUsername}/>
      Hello, Project Ppl!
      <AlkonistProf />
