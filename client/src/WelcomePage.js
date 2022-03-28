@@ -4,12 +4,12 @@ import SignUp from './SignUp.js';
 import Login from './Login.js';
 
 
-function WelcomePage() {
+function WelcomePage({onLogin}) {
   return (
     <div>
         <h1>WelcomePage</h1>
         <SignUp/>
-        <Login />
+        <Login onLogin={onLogin}/>
     </div>
   )
 }

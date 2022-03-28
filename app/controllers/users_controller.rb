@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-user = User.all
-render json: user 
+    user = User.all
+    render json: user 
   end 
 
   # This is for session staying logged in
   def show
-    byebug
     user = User.find_by!(id: session[:user_id])
     if user 
       render json: user
