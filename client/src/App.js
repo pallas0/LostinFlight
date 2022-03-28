@@ -4,11 +4,24 @@ import AlkonistProf from "./AlkonistProf.js";
 import CaladriusProf from "./CaladriusProf.js";
 import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
+import NavBar from './NavBar';
+import React, {useState, useEffect} from 'react'
 
 function App() {
+  const [name, setName] = useState(null);
+
+  useEffect(() => {
+    fetch("/me").then((response) => {
+      if (response.ok) {
+        response.json().then((name) => setName(name));
+      }
+    });
+  }, []);
+
   return (
    <div>
-     <WelcomePage />
+     <NavBar/>
+     <WelcomePage onLogin={setName}/>
      Hello, Project Ppl!
      <AlkonistProf />
      <CaladriusProf />
