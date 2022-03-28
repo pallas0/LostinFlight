@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 function Login({onLogin}) {
-  const [name, setName] = useState("")
+  const [username, setUsername] = useState("")
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -10,7 +10,7 @@ function Login({onLogin}) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name }),
+      body: JSON.stringify({ username }),
     })
     .then((r) => r.json())
     .then((user) => onLogin(user))
@@ -22,8 +22,8 @@ function Login({onLogin}) {
             <label>
                 Name:
                 <input type='text' 
-                name={name}
-                onChange={(e) => setName(e.target.value)} />
+                name={username}
+                onChange={(e) => setUsername(e.target.value)} />
             </label>
         </form>
      <button onClick={handleSubmit}>Login</button>

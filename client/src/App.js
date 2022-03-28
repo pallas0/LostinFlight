@@ -8,12 +8,12 @@ import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
 
 function App() {
-  const [name, setName] = useState(null);
+  const [username, setUsername] = useState(null);
 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((name) => setName(name));
+        response.json().then((name) => setUsername(name));
       }
     });
   }, []);
@@ -21,7 +21,7 @@ function App() {
   return (
    <div>
      <NavBar/>
-     <WelcomePage onLogin={setName}/>
+     <WelcomePage onLogin={setUsername}/>
      Hello, Project Ppl!
      <AlkonistProf />
      <CaladriusProf />
