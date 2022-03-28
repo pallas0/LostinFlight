@@ -1,0 +1,2 @@
+class Legend < ApplicationRecord
+end

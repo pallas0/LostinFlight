@@ -1,2 +1,0 @@
-class LegendQuizzesController < ApplicationController
-end

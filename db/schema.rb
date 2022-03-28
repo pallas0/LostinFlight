@@ -10,35 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_25_192722) do
+ActiveRecord::Schema.define(version: 2022_03_28_190129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "legend_quizzes", force: :cascade do |t|
-    t.string "question"
-    t.string "answer1"
-    t.string "answer2"
-    t.string "answer3"
-    t.string "answer4"
-    t.string "answer5"
+  create_table "legends", force: :cascade do |t|
+    t.string "name"
+    t.string "bio"
+    t.string "trait"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quiz_results", force: :cascade do |t|
-    t.integer "result"
+  create_table "quiz_users", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "quiz_id", null: false
+    t.integer "response"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_quiz_results_on_user_id"
+    t.index ["quiz_id"], name: "index_quiz_users_on_quiz_id"
+    t.index ["user_id"], name: "index_quiz_users_on_user_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "question"
+    t.string "empathy"
+    t.string "assertiveness"
+    t.string "creativity"
+    t.string "ambition"
+    t.string "optimism"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
+    t.bigint "legend_id"
+    t.date "birthday"
+    t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["legend_id"], name: "index_users_on_legend_id"
   end
 
-  add_foreign_key "quiz_results", "users"
+  add_foreign_key "quiz_users", "quizzes"
+  add_foreign_key "quiz_users", "users"
+  add_foreign_key "users", "legends"
 end
