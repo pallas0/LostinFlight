@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUsername(user));
+        response.json().then((name) => setUsername(name));
       }
     });
   }, []);
