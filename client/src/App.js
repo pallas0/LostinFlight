@@ -4,6 +4,7 @@ import AlkonistProf from "./AlkonistProf.js";
 import CaladriusProf from "./CaladriusProf.js";
 import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
+import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
   return (
    <div>
+     <NavBar/>
      <WelcomePage onLogin={setName}/>
      Hello, Project Ppl!
      <AlkonistProf />
