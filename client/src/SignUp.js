@@ -13,7 +13,7 @@ function SignUp() {
         <center> 
         <Form>
             <Row className="justify-content-center">
-              <Col xs="auto">
+              <Col xs="auto" >
               Username:
                 <Form.Control placeholder="Type username here.." />
               </Col>
@@ -27,9 +27,9 @@ function SignUp() {
         </Form>
         <div >
         {/* <button type="button" class="btn btn-outline-primary" style={{ color: '#e2eafcff' }} >Sign Up!</button> */}
-        <button className="btn btn-primary" type="submit" style={{ color: '#e2eafcff' }}>Button</button>
+        <button className="btn btn-primary px-3 my-3"type="submit" >Find your Legend</button>
 
-      <Button  >SignUp</Button>
+      {/* <Button  >SignUp</Button> */}
       </div>
       </center>
 
