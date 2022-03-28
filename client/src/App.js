@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import WelcomePage from './WelcomePage';
 import AlkonistProf from "./AlkonistProf.js";
 import CaladriusProf from "./CaladriusProf.js";
@@ -29,6 +30,7 @@ function App() {
      <PhoenixProf />
      <SirinProf />
      <Labstor/>
+
     </div>
 
   );

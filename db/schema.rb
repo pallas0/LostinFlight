@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_03_28_190129) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.bigint "legend_id"
+    t.bigint "legend_id", null: false
     t.date "birthday"
     t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
