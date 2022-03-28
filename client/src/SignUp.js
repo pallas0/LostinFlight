@@ -27,7 +27,7 @@ function SignUp() {
         </Form>
         <div >
         {/* <button type="button" class="btn btn-outline-primary" style={{ color: '#e2eafcff' }} >Sign Up!</button> */}
-        <button class="btn btn-primary" type="submit" style={{ color: '#e2eafcff' }}>Button</button>
+        <button className="btn btn-primary" type="submit" style={{ color: '#e2eafcff' }}>Button</button>
 
       <Button  >SignUp</Button>
       </div>
