@@ -3,13 +3,13 @@ import React from 'react'
 function Login() {
   return (
     <div>
-         <form>
+         {/* <form>
             <label>
                 Name:
                 <input type='text' name='name' />
             </label>
         </form>
-     <button>Login</button>
+     <button>Login</button> */}
         
     </div>
   )
