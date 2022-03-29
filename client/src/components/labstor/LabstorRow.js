@@ -81,15 +81,15 @@
 //     const cancelButtonIcon = '⌧'
 //     const delButtonIcon = '🗑'
 
-//     function Item(){
-//         return (
-//             Object.entries(row).map((item) => (
-//                         <div style={itemWide} key={uuidv4()}>
-//                             <span key={uuidv4()} style={helper}>{item[0]}</span>
-//                             {item[1]}
-//                         </div>
-//         )))
-//     }
+    // function Item(){
+    //     return (
+    //         Object.entries(row).map((item) => (
+    //                     <div style={itemWide} key={uuidv4()}>
+    //                         <span key={uuidv4()} style={helper}>{item[0]}</span>
+    //                         {item[1]}
+    //                     </div>
+    //     )))
+    // }
 
 //     return (
 //         <div style={containerColumn} key={uuidv4()}>

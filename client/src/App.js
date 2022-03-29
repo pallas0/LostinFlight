@@ -7,6 +7,7 @@ import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
+import Quiz from './Quiz';
 
 // import Labstor from './components/labstor/Labstor'
 
@@ -25,12 +26,12 @@ function App() {
    <div>
      <NavBar onLogout={setUsername}/>
      <WelcomePage onLogin={setUsername}/>
-     <AlkonistProf />
+     {/* <AlkonistProf />
      <CaladriusProf />
      <PhoenixProf />
-     <SirinProf />
+     <SirinProf /> */}
      {/* <Labstor/> */}
-
+  <Quiz/>
     </div>
 
   );

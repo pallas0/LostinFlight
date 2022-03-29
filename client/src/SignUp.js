@@ -33,7 +33,7 @@ function SignUp() {
             >
               Sign Up!
             </button>
-            <Quiz />
+        
           </div>
         </center>
       </Container>
