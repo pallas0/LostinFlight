@@ -47,26 +47,47 @@ function Quiz() {
     }
     return newState;
   }
-  function handleClick(e) {
-    console.log(e);
-    dispatch({ type: e.target.name });
-  }
+
   useEffect(() => {
     console.log(state, inGame);
+
   }, [state, inGame]);
 
   const handleAnswerButtonClick = (answer) => {
     dispatch({ type: answer.attribute });
 
     const nextQuestion = currentQuestion + 1;
-    console.log(nextQuestion);
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else  {
       console.log("end of quiz");
       setInGame(false)
+      calculate()
     } 
   };
+
+    function calculate(){
+      // compare state key values
+      // if two values === values
+      // offer 6th question
+      // else return highest key
+      console.log("calculating..." )
+
+      // Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) 
+
+
+      const values = Object.values(state)
+      const max = Math.max(...values)
+
+      const arrayOfTraitResult = Object.keys(state).filter(key => state[key] === max)
+        if (arrayOfTraitResult.length > 1) {
+          console.log("tie breaker")
+        } else {
+          console.log("you win a " + arrayOfTraitResult[0])
+        }
+        console.log(arrayOfTraitResult)
+    }
+
   const questions = [
     {
       id: 1,
@@ -74,17 +95,17 @@ function Quiz() {
       answers: [
         {
           answerText:
-            "Assure everyone that everything is ok and that you’ll find a way out together",
+            "empathy",
           attribute: "Empathy",
         },
         {
           answerText:
-            "Take the lead and devise a plan that you urge everyone to follow ",
+            "Assertiveness",
           attribute: "Assertiveness",
         },
         {
           answerText:
-            "Trust your senses and walk confidently in the direction from which you came",
+            "Creativity",
           attribute: "Creativity",
         },
       ],
@@ -93,28 +114,46 @@ function Quiz() {
       id: 2,
       questionText: "Question text 2",
       answers: [
-        { answerText: "Goblet 3", attribute: "Assertiveness" },
-        { answerText: "Goblet 1", attribute: "Creativity" },
-        { answerText: "Goblet 2", attribute: "Ambition" },
+        { answerText: "Assertiveness", attribute: "Assertiveness" },
+        { answerText: "Creativity", attribute: "Creativity" },
+        { answerText: "Ambition", attribute: "Ambition" },
       ],
     },
     {
       id: 3,
       questionText: "Question text 3",
       answers: [
+        { answerText: "Optimism", attribute: "Optimism" },
+        { answerText: "Creativity", attribute: "Creativity" },
+        { answerText: "Ambition", attribute: "Ambition" },
+      ],
+    },
+    {
+      id: 4,
+      questionText: "Question text 4",
+      answers: [
+        { answerText: "Assertiveness", attribute: "Assertiveness" },
+        { answerText: "Empathy", attribute: "Empathy" },
+        { answerText: "Optimism", attribute: "Optimism" },
+      ],
+    },
+    {
+      id: 5,
+      questionText: "Question text 3",
+      answers: [
         {
           answerText:
-            "Congratulate the opponent & dismiss yourself to search for more prey.",
-          attribute: "Creativity",
-        },
-        {
-          answerText: "Plan a rematch, training starts now.",
+            "Ambition",
           attribute: "Ambition",
         },
         {
-          answerText:
-            "You’re happy with the battle and congratulate the opponent on their win, there will be more soon.",
+          answerText: "Optimism",
           attribute: "Optimism",
+        },
+        {
+          answerText:
+            "Empathy",
+          attribute: "Empathy",
         },
       ],
     },
@@ -137,8 +176,10 @@ function Quiz() {
               {answer.answerText}
             </button>
           ))}
-          {state.Empathy}
+          {    Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) }
         </div>
+        <button onClick={calculate}>Calculate</button>
+        
       </>
     </div>
   );
