@@ -8,6 +8,7 @@ import SirinProf from "./SirinProf.js";
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
 import QuizHome from './components/tallyHo/QuizHome';
+import BirdCollection from './components/collection/BirdCollection';
 
 // import Labstor from './components/labstor/Labstor'
 
@@ -24,13 +25,13 @@ function App() {
 
   return (
    <div>
-     <NavBar onLogout={setUsername}/>
+     {/* <NavBar onLogout={setUsername}/>
      <WelcomePage onLogin={setUsername}/>
      <AlkonistProf />
      <CaladriusProf />
      <PhoenixProf />
-     <SirinProf />
-
+     <SirinProf /> */}
+    <BirdCollection/>
     </div>
 
   );
