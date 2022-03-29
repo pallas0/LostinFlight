@@ -6,6 +6,7 @@ import AlkonistProf from "./AlkonistProf.js";
 import CaladriusProf from "./CaladriusProf.js";
 import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
+import RokhProf from './RokhProf';
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -30,23 +31,27 @@ function App() {
 
   return (
     <div>
-      <NavBar>
-
-      </NavBar>
+      <NavBar/>
      <div class='container-fluid'>
      </div>
-     <Route path='/'>
-       <WelcomePage />
-     </Route>
-     {/* <Route path='/quiz'>
-       <Quiz />
-     </Route>
-    <Route path='/AlkonistProf'>
+    <Route exact path='/AlkonistProf'>
       <AlkonistProf />
     </Route>
-    <Route path=''> */}
-
-    {/* </Route> */}
+    <Route exact path='/CaladriusProf'>
+      <CaladriusProf />
+    </Route>
+    <Route exact path='/PhoenixProf'>
+      <PhoenixProf />
+    </Route>
+    <Route exact path='/RokhProf'>
+      <RokhProf />
+    </Route>
+    <Route exact path='/SirinProf'>
+      <SirinProf />
+    </Route>
+    <Route exact path='/'>
+       <WelcomePage />
+     </Route>
     </div>
 
   );

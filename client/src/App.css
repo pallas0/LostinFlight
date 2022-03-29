@@ -10,6 +10,22 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+#alkonist{
+  background-color: #0081a7ff;
+  width: 100vw;
+
+}
+
+#alkonist-title-blurb {
+  height: 80vw;
+  background-color: #fdfcdcff;
+}
+
+#alkonist-main-blurb {
+  height: 80vw;
+  background-color: #f07167ff;
+}
 body {
     background-color: #abc4ff;
     display: flex;
@@ -35,6 +51,8 @@ body {
 #welcomePageForm{
   height: 300px;
 }
+
+
 
 button {
   width: 180px;
