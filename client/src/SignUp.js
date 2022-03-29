@@ -3,34 +3,22 @@ import Quiz from './Quiz'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/esm/Container'
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card';
 
 function SignUp() {
   return (
     <div>
       <Container>
-        <center>
           <Form>
-            <Row className="justify-content-center">
-              <Col xl="auto">
-                Username:
-                <Form.Control placeholder="Type username here.." />
-              </Col>
-            </Row>
-            <Row className="justify-content-center">
-              <Col xl="auto">
-                Birthday:
-                <Form.Control type="date" placeholder="Type Birthday here.." />
-              </Col>
-            </Row>
-          </Form>
-          <div>
+           Username:
+           <Form.Control placeholder="Type username here.." />
+           Birthday:
+           <Form.Control type="date" placeholder="Type Birthday here.." />
             <button>
-              Sign Up!
-            </button>
-            <Quiz />
-          </div>
-        </center>
+           Sign Up!
+           </button>
+          </Form>
       </Container>
     </div>
   );

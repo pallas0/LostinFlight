@@ -18,10 +18,15 @@ function Login({onLogin}) {
   }
 
   return (
-    <div>
+    <div className='welcomePageForm'>
          <form>
             <label>
+              {/* <span style={{text-align:center }}>
+              Login
+              </span> */}
+              <br></br>
                 Name:
+                <br></br>
                 <input type='text' 
                 name={username}
                 onChange={(e) => setUsername(e.target.value)} />

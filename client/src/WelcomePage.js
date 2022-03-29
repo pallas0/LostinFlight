@@ -5,25 +5,46 @@ import Login from './Login.js';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
+// import styled, {keyframes} from 'styled-components' 
 
 
 function WelcomePage({onLogin}) {
   return (
-  <div>
+
+  <div id="clouds">
+      <div class="cloud x1"></div>
+	    <div class="cloud x2"></div>
     <Container>
       <Row>
-       <h1>Lost in Flight</h1>
+       <h1 id='WelcomePageTitle' >Lost in Flight</h1>
       </Row>
       <Row>
         <Col>
-           <Login onLogin={onLogin}/>
+          <Card>
+            <Login onLogin={onLogin}/>
+         </Card>
+	    <div class="cloud x6"></div>
+	    <div class="cloud x7"></div>
         </Col>
         <Col>
-          <SignUp/>
+          <Card>
+            <SignUp/>
+          </Card>
         </Col>
        </Row>
    </Container>
+	    <div class="cloud x3"></div>
+    	<div class="cloud x4"></div>
+	    <div class="cloud x5"></div>
+
+      {/* <div class="cloud x1"></div>
+	    <div class="cloud x5"></div> */}
+  
   </div>
+  
+
+
   )
 }
 

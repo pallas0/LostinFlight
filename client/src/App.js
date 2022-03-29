@@ -1,4 +1,5 @@
 import './App.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import WelcomePage from './WelcomePage';
 import AlkonistProf from "./AlkonistProf.js";
@@ -29,8 +30,10 @@ function App() {
 
   return (
     <div>
+      <NavBar>
+
+      </NavBar>
      <div class='container-fluid'>
-     <NavBar />
      </div>
      <Route path='/'>
        <WelcomePage />
@@ -38,12 +41,12 @@ function App() {
      {/* <Route path='/quiz'>
        <Quiz />
      </Route>
-    <Route path='/login'>
-      <Login />
+    <Route path='/AlkonistProf'>
+      <AlkonistProf />
     </Route>
-    <Route path=''>
+    <Route path=''> */}
 
-    </Route> */}
+    {/* </Route> */}
     </div>
 
   );

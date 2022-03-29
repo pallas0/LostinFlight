@@ -13,13 +13,13 @@ function NavBar({onLogout}) {
 
   return (
     <div >
-    <Navbar bg="light" variant="light">
-     <Container >
-       <Nav className="me-auto">
-        <button onClick={handleLogout}>Logout</button>
-       </Nav>
-     </Container>
-  </Navbar>
+    <Navbar bg="navBar" fixed='top'>
+      <Container >
+        <Nav className="me-auto">
+          <button onClick={handleLogout}>Logout</button>
+        </Nav>
+       </Container>
+    </Navbar>
     </div>
   )
 }
