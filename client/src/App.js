@@ -7,7 +7,7 @@ import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
-import Labstor from './components/labstor/Labstor'
+// import Labstor from './components/labstor/Labstor'
 
 function App() {
   const [username, setUsername] = useState(null);
@@ -24,12 +24,11 @@ function App() {
    <div>
      <NavBar/>
      <WelcomePage onLogin={setUsername}/>
-     Hello, Project Ppl!
      <AlkonistProf />
      <CaladriusProf />
      <PhoenixProf />
      <SirinProf />
-     <Labstor/>
+     {/* <Labstor/> */}
 
     </div>
 

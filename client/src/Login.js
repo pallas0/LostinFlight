@@ -26,7 +26,6 @@ function Login({onLogin}) {
                 onChange={(e) => setUsername(e.target.value)} />
             </label>
         </form>
-     <button>Login</button>
      <button onClick={handleSubmit}>Login</button>
         
     </div>
