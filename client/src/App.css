@@ -26,6 +26,63 @@
   height: 80vw;
   background-color: #f07167ff;
 }
+
+#caladrius{
+  background-color: #eec4af;
+  width: 100vw;
+}
+#caladrius-title-blurb {
+  height: 80vw;
+  background-color: #eddcd2;
+}
+
+#caladrius-main-blurb {
+  height: 80vw;
+  background-color: #e8d1c5;
+}
+
+#phoenix{
+  background-color: #0f4c5c;
+  width: 100vw;
+}
+#phoenix-title-blurb {
+  height: 80vw;
+  background-color: #9a031e;
+}
+
+#phoenix-main-blurb {
+  height: 80vw;
+  background-color: #e36414;
+}
+
+#sirin{
+  background-color: #2c6e49;
+  width: 100vw;
+}
+#sirin-title-blurb {
+  height: 80vw;
+  background-color: #ffc9e9;
+}
+
+#sirin-main-blurb {
+  height: 80vw;
+  background-color: #d68c45;
+}
+
+#rokh{
+  background-color: #3c1642;
+  width: 100vw;
+}
+#rokh-title-blurb {
+  height: 80vw;
+  background-color: #b2ff9e;
+}
+
+#rokh-main-blurb {
+  height: 80vw;
+  background-color: #1dd3b0;
+}
+
 body {
     background-color: #abc4ff;
     display: flex;
