@@ -12,7 +12,7 @@ function LabstorEditor( { inEdit, setInEdit, goFetch } ) {
         optimism: "Answer 5..."
 }
 
-console.log(inEdit)
+// console.log(inEdit)
 
     // write the edits to the DB
     function handleEditUpdate(event){
