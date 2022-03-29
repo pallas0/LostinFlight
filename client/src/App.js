@@ -7,6 +7,7 @@ import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
+import QuizHome from './components/tallyHo/QuizHome';
 
 // import Labstor from './components/labstor/Labstor'
 
@@ -29,7 +30,6 @@ function App() {
      <CaladriusProf />
      <PhoenixProf />
      <SirinProf />
-     {/* <Labstor/> */}
 
     </div>
 

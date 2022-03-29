@@ -21,6 +21,7 @@ function QuizHome() {
         .then((data) => setQuestionData(data))
     },[])
     function PresentQuestions(){
+        console.log(Object.values(questionData[1]))
         return (
             Object.values(questionData).map(each => (
                 <Question eachQuestion={each}/>

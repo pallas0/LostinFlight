@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Question( { eachQuestion } ) {
-    console.log(eachQuestion)
+    // console.log(eachQuestion)
   return (
       <div>
           <strong>ID: {eachQuestion.id}</strong>
