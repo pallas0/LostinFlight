@@ -8,6 +8,8 @@ import SirinProf from "./SirinProf.js";
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
 
+// import Labstor from './components/labstor/Labstor'
+
 function App() {
   const [username, setUsername] = useState(null);
 
@@ -23,11 +25,11 @@ function App() {
    <div>
      <NavBar onLogout={setUsername}/>
      <WelcomePage onLogin={setUsername}/>
-     Hello, Project Ppl!
      <AlkonistProf />
      <CaladriusProf />
      <PhoenixProf />
      <SirinProf />
+     {/* <Labstor/> */}
 
     </div>
 

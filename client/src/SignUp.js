@@ -8,34 +8,37 @@ import Container from 'react-bootstrap/esm/Container'
 
 function SignUp() {
   return (
-    <div >
+    <div>
       <Container>
-        <center> 
-        <Form>
+        <center>
+          <Form>
             <Row className="justify-content-center">
               <Col xs="auto">
-              Username:
+                Username:
                 <Form.Control placeholder="Type username here.." />
               </Col>
-              </Row>
-              <Row className="justify-content-center">
+            </Row>
+            <Row className="justify-content-center">
               <Col xs="auto">
-              Birthday:
+                Birthday:
                 <Form.Control type="date" placeholder="Type Birthday here.." />
               </Col>
             </Row>
-        </Form>
-        <div >
-        {/* <button type="button" class="btn btn-outline-primary" style={{ color: '#e2eafcff' }} >Sign Up!</button> */}
-        <button className="btn btn-primary" type="submit" style={{ color: '#e2eafcff' }}>Button</button>
-
-      <Button  >SignUp</Button>
-      </div>
-      </center>
-
+          </Form>
+          <div>
+            <button
+              className="btn btn-primary"
+              type="submit"
+              style={{ color: "#e2eafcff" }}
+            >
+              Sign Up!
+            </button>
+            <Quiz />
+          </div>
+        </center>
       </Container>
-        </div>
-  )
+    </div>
+  );
 }
 
 export default SignUp
