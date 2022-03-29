@@ -1,5 +1,5 @@
 body {
-    background-color: #7cc6fe;
+    background-color: #abc4ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,7 +7,7 @@ body {
   }
 
   .app {
-    background-color: #252d4a;
+    /* background-color: #252d4a; */
     width: 450px;
     min-height: 200px;
     height: min-content;
@@ -17,3 +17,57 @@ body {
     display: flex;
     justify-content: space-evenly;
   }
+  .NavBar{
+    position: fixed;
+    margin-top: 0px;
+    color: #000;
+
+  }
+
+  button {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #d7e3fcff;
+    outline: none;
+    transition: 0.3s ease-in-out;
+  }
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #b6ccfe;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: .3s ease-in-out;
+  }
+  
+  button:hover {
+    transition: .4s ease-in-out;
+    background:  #d7e3fcff;
+  }
+  
+  button:hover svg {
+    stroke-dashoffset: -480;
+  }
+
+  /* button {
+    transition: all .5s ease;
+    color: #fff;
+    border: 3px solid white;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 17px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border-radius: 4px;
+}
+button:hover {
+    color: #001F3F;
+    background-color: #fff;
+} */

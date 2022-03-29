@@ -1,6 +1,5 @@
 import React from 'react'
 import Quiz from './Quiz'
-import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -8,34 +7,33 @@ import Container from 'react-bootstrap/esm/Container'
 
 function SignUp() {
   return (
-    <div >
+    <div>
       <Container>
-        <center> 
-        <Form>
+        <center>
+          <Form>
             <Row className="justify-content-center">
-              <Col xs="auto" >
-              Username:
+              <Col xl="auto">
+                Username:
                 <Form.Control placeholder="Type username here.." />
               </Col>
-              </Row>
-              <Row className="justify-content-center">
-              <Col xs="auto">
-              Birthday:
+            </Row>
+            <Row className="justify-content-center">
+              <Col xl="auto">
+                Birthday:
                 <Form.Control type="date" placeholder="Type Birthday here.." />
               </Col>
             </Row>
-        </Form>
-        <div >
-        {/* <button type="button" class="btn btn-outline-primary" style={{ color: '#e2eafcff' }} >Sign Up!</button> */}
-        <button className="btn btn-primary px-3 my-3"type="submit" >Find your Legend</button>
-
-      {/* <Button  >SignUp</Button> */}
-      </div>
-      </center>
-
+          </Form>
+          <div>
+            <button>
+              Sign Up!
+            </button>
+            <Quiz />
+          </div>
+        </center>
       </Container>
-        </div>
-  )
+    </div>
+  );
 }
 
 export default SignUp

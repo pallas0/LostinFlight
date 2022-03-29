@@ -7,7 +7,14 @@ import PhoenixProf from "./PhoenixProf.js";
 import SirinProf from "./SirinProf.js";
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
-import Labstor from './components/labstor/Labstor'
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import SignUp from './SignUp';
+import Login from './Login';
+
+
+
+
+
 
 function App() {
   const [username, setUsername] = useState(null);
@@ -21,20 +28,27 @@ function App() {
   }, []);
 
   return (
-   <div>
-     <NavBar/>
-     <WelcomePage onLogin={setUsername}/>
-     Hello, Project Ppl!
-     <AlkonistProf />
-     <CaladriusProf />
-     <PhoenixProf />
-     <SirinProf />
-     <Labstor/>
+    <div>
+     <div class='container-fluid'>
+     <NavBar />
+     </div>
+     <Route path='/'>
+       <WelcomePage />
+     </Route>
+     {/* <Route path='/quiz'>
+       <Quiz />
+     </Route>
+    <Route path='/login'>
+      <Login />
+    </Route>
+    <Route path=''>
 
+    </Route> */}
     </div>
 
   );
 }
+
 
 
 export default App;
