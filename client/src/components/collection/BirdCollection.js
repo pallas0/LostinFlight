@@ -5,7 +5,11 @@ import { useEffect, useState } from 'react'
 
 function BirdCollection() {
 
-const [ birds, setBirds] = useState('')
+  let birdObservationObj = {
+    region: "",
+    species: ""}
+
+const [ birds, setBirds] = useState([birdObservationObj])
 
   const user = {
     id: 1,
@@ -18,13 +22,20 @@ const [ birds, setBirds] = useState('')
           date: "2022-2-22"
          }
   }
-// func() {
+
 useEffect (() => {
-  fetch(`http://localhost:4000/users`)
+  fetch(`http://localhost:4000/users/${user.id}`)
   .then(r => r.json())
   .then(data => console.log(data))
 }, [])
-// }
+
+const birdCardRender = birds.map((bird) => {
+  return (
+  <Gallery
+    species = {bird.species}
+    region = {bird.region}
+    />
+    )})
   
 
 
