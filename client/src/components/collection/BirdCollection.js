@@ -2,6 +2,9 @@ import React from 'react';
 import EntryForm from './EntryForm'
 import Gallery from './Gallery'
 import { useEffect, useState } from 'react'
+import Row from 'react-bootstrap/esm/Row'
+import Col from 'react-bootstrap/esm/Col'
+
 
 function BirdCollection() {
 
@@ -15,6 +18,7 @@ const [ birds, setBirds] = useState([birdObservationObj])
     id: 1,
     username: "Jojo",
     birthday: "1999-12-31",
+
      bird_observation:{
           region: "North West",
           species: "Robin",
@@ -24,28 +28,31 @@ const [ birds, setBirds] = useState([birdObservationObj])
   }
 
 useEffect (() => {
-  fetch(`http://localhost:4000/users/${user.id}`)
+  fetch(`http://localhost:4000/users/${user.id}/collection`)
   .then(r => r.json())
-  .then(data => console.log(data))
+  // .then(data => console.log(data))
+  .then(setBirds)
 }, [])
 
 const birdCardRender = birds.map((bird) => {
-  return (
-  <Gallery
+  return <Gallery
+    key = {bird.id}
+    image = {bird.image}
     species = {bird.species}
     region = {bird.region}
+    date = {bird.date}
     />
-    )})
+    })
   
-
-
+console.log(birds)
 
   return (
     <div>
       Welcome to your Collection {user.username}
         <EntryForm />
-        <Gallery user={user} />
-      
+        <Col>
+        {birdCardRender}
+        </Col>
     </div>
   )
 }
