@@ -6,6 +6,7 @@ function Login({onLogin}) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log("submit")
     fetch("/login", {
       method: "POST",
       headers: {

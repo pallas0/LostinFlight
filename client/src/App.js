@@ -16,9 +16,6 @@ import BirdCollection from './components/collection/BirdCollection';
 import QuizContainer from './components/quiz/QuizContainer';
 
 
-
-
-
 function App() {
   const [username, setUsername] = useState(null);
 
@@ -30,9 +27,10 @@ function App() {
     });
   }, []);
 
+
   return (
     <div>
-      <NavBar/>
+      <NavBar onLogout={setUsername}/>
       <Switch>
         <Route path='/collection' >
           <BirdCollection />
@@ -41,7 +39,7 @@ function App() {
           <QuizContainer />  
         </Route>
         <Route exact path='/'>
-          <WelcomePage />
+          <WelcomePage onLogin={setUsername}/>
         </Route> 
       </Switch>
     </div>

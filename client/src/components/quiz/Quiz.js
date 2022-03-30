@@ -1,11 +1,12 @@
 import React, { useReducer, useEffect, useState } from "react";
-import { Redirect } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
-function Quiz({questions}) {
+function Quiz( { questions, onProfileUpdate } ) {
   // console.log(questions);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [inGame, setInGame] = useState(true)
   const thequestions = questions.map((eachquestion) => eachquestion);
+  let history = useHistory()
 
   // State reducer for attribute tally
   const initialState = {
@@ -74,14 +75,16 @@ function Quiz({questions}) {
 
           console.log("tie breaker")
         } else {
+          const discoveredTrait = arrayOfTraitResult[0]
           console.log("you win a " + arrayOfTraitResult[0])
-          // writeWinner()
-          return <Redirect to="/" />
+          writeWinner(discoveredTrait)
+          return history.push("/")
         }
         }
 
-    function writeWinner(){
-      console.log("will write to database friend")
+    function writeWinner(discoveredTrait) {
+      console.log(discoveredTrait)
+      onProfileUpdate(discoveredTrait)
     }
   function AnswerOptions(){
     return (
