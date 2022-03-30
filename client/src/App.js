@@ -13,6 +13,7 @@ import { Route, Switch } from "react-router-dom";
 import SignUp from './SignUp';
 import Login from './Login';
 import Quiz from './components/quiz/Quiz'
+import BirdCollection from './components/collection/BirdCollection';
 
 
 
@@ -31,27 +32,19 @@ function App() {
   }, []);
 
   return (
-<<<<<<< HEAD
-   <div>
-     {/* <NavBar onLogout={setUsername}/>
-     <WelcomePage onLogin={setUsername}/>
-     <AlkonistProf />
-     <CaladriusProf />
-     <PhoenixProf />
-     <SirinProf /> */}
-    <BirdCollection/>
-=======
     <div>
         <NavBar/>
       <Switch>
+        <Route path='/collection' >
+          <BirdCollection />
+        </Route>
         <Route path='/quiz' >
           <Quiz />  
         </Route>
         <Route exact path='/'>
           <WelcomePage />
         </Route> 
-     </Switch>
->>>>>>> jp9-quiz
+      </Switch>
     </div>
 
   );

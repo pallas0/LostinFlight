@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_190129) do
+ActiveRecord::Schema.define(version: 2022_03_30_133239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bird_observations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "region"
+    t.string "species"
+    t.string "image"
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bird_observations_on_user_id"
+  end
 
   create_table "legends", force: :cascade do |t|
     t.string "name"
@@ -54,6 +65,7 @@ ActiveRecord::Schema.define(version: 2022_03_28_190129) do
     t.index ["legend_id"], name: "index_users_on_legend_id"
   end
 
+  add_foreign_key "bird_observations", "users"
   add_foreign_key "quiz_users", "quizzes"
   add_foreign_key "quiz_users", "users"
   add_foreign_key "users", "legends"
