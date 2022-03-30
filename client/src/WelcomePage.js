@@ -9,7 +9,8 @@ import Card from 'react-bootstrap/Card';
 // import styled, {keyframes} from 'styled-components' 
 
 
-function WelcomePage({onLogin}) {
+function WelcomePage( {onLogin} ) {
+
   return (
 
   <div id="clouds">
