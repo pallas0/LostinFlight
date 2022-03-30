@@ -1,16 +1,23 @@
 import './App.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import WelcomePage from './WelcomePage';
-import AlkonistProf from "./AlkonistProf.js";
-import CaladriusProf from "./CaladriusProf.js";
-import PhoenixProf from "./PhoenixProf.js";
-import SirinProf from "./SirinProf.js";
+import AlkonistProf from "./legend_profiles/AlkonistProf.js";
+import CaladriusProf from "./legend_profiles/CaladriusProf.js";
+import PhoenixProf from "./legend_profiles/PhoenixProf.js";
+import SirinProf from "./legend_profiles/SirinProf.js";
+import RokhProf from './legend_profiles/RokhProf';
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
-import QuizHome from './components/tallyHo/QuizHome';
-import BirdCollection from './components/collection/BirdCollection';
+import { Route, Switch } from "react-router-dom";
+import SignUp from './SignUp';
+import Login from './Login';
+import Quiz from './components/quiz/Quiz'
 
-// import Labstor from './components/labstor/Labstor'
+
+
+
+
 
 function App() {
   const [username, setUsername] = useState(null);
@@ -24,6 +31,7 @@ function App() {
   }, []);
 
   return (
+<<<<<<< HEAD
    <div>
      {/* <NavBar onLogout={setUsername}/>
      <WelcomePage onLogin={setUsername}/>
@@ -32,10 +40,23 @@ function App() {
      <PhoenixProf />
      <SirinProf /> */}
     <BirdCollection/>
+=======
+    <div>
+        <NavBar/>
+      <Switch>
+        <Route path='/quiz' >
+          <Quiz />  
+        </Route>
+        <Route exact path='/'>
+          <WelcomePage />
+        </Route> 
+     </Switch>
+>>>>>>> jp9-quiz
     </div>
 
   );
 }
+
 
 
 export default App;

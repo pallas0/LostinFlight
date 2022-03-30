@@ -1,4 +1,8 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 function NavBar({onLogout}) {
     function handleLogout() {
@@ -8,8 +12,14 @@ function NavBar({onLogout}) {
     }
 
   return (
-    <div>
-        <button onClick={handleLogout}>Logout</button>
+    <div >
+    <Navbar bg="navBar" fixed='top'>
+      <Container >
+        <Nav className="me-auto">
+          <button onClick={handleLogout}>Logout</button>
+        </Nav>
+       </Container>
+    </Navbar>
     </div>
   )
 }

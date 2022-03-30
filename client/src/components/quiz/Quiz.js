@@ -55,7 +55,7 @@ function Quiz() {
   
   useEffect(() => {
     calculate()
-  }, [inGame]);
+  }, [inGame, calculate]);
 
 
 
@@ -77,28 +77,18 @@ function Quiz() {
 
       // Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) 
 
-
       const values = Object.values(state)
       const max = Math.max(...values)
 
       const arrayOfTraitResult = Object.keys(state).filter(key => state[key] === max)
         if (arrayOfTraitResult.length > 1) {
-          tieBreaker(arrayOfTraitResult)
           console.log("tie breaker")
         } else {
           console.log("you win a " + arrayOfTraitResult[0])
           writeWinner()
         }
-    }
-    function tieBreaker(arr) {
-      console.log("in the tiebreaker")
-      console.log(arr)
-      // arr.map(answer => {
-      //   <button >
-      //     {answer}
-      //   </button>
-      // })
-    }
+        }
+
     function writeWinner(){
       console.log("will write to database friend")
     }
@@ -158,7 +148,7 @@ function Quiz() {
           {answer.answerText}
         </button>
       ))}
-      {/* {    Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) } */}
+      {    Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) }
     </div>
     )
   }

@@ -1,41 +1,24 @@
 import React from 'react'
-import Quiz from './Quiz'
-import Button from 'react-bootstrap/Button'
+import Quiz from './components/quiz/Quiz'
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Container from 'react-bootstrap/esm/Container'
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card';
 
 function SignUp() {
   return (
     <div>
       <Container>
-        <center>
           <Form>
-            <Row className="justify-content-center">
-              <Col xs="auto">
-                Username:
-                <Form.Control placeholder="Type username here.." />
-              </Col>
-            </Row>
-            <Row className="justify-content-center">
-              <Col xs="auto">
-                Birthday:
-                <Form.Control type="date" placeholder="Type Birthday here.." />
-              </Col>
-            </Row>
+           Username:
+           <Form.Control placeholder="Type username here.." />
+           Birthday:
+           <Form.Control type="date" placeholder="Type Birthday here.." />
+            <button>
+           Sign Up!
+           </button>
           </Form>
-          <div>
-            <button
-              className="btn btn-primary"
-              type="submit"
-              style={{ color: "#e2eafcff" }}
-            >
-              Sign Up!
-            </button>
-            <Quiz />
-          </div>
-        </center>
       </Container>
     </div>
   );
