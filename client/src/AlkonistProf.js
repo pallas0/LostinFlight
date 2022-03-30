@@ -3,23 +3,27 @@ import Container from 'react-bootstrap/Container';
 // import Toast from 'react-bootstrap/Toast';
 import BirdCardContainer from './BirdCardContainer'
 import BirdProfInfo from './BirdProfInfo'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
 
 function AlkonistProf() {
   return (
-    <div> 
-       <Container className="p-3">
-         <Container className="p-5 mb-4 bg-light rounded-3">
-            <h1 className="header"> haaaayyyyy
+    <body id="alkonist"> 
+       <Container className="p-3 vstack"> 
+         <Container id="alkonist-title-blurb"className="p-5 mb-4 rounded-3">
+         <h1 className="header"> Alkonist
             </h1>
-              {/* <ExampleToast>
-              We now have Toasts
-             <span role="img" aria-label="tada">
-          🎉
-             </span>
-              </ExampleToast> */}
           </Container>
         </Container>
-    </div>
+        <br></br>
+        <Container id="alkonist-main-blurb" className="p-5 mb-4 rounded-3">
+          <Row>
+            <Col>Profile Info</Col>
+            <Col>Collection</Col>
+          </Row>
+        </Container>
+    </body>
   )
 }
 
