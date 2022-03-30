@@ -1,0 +1,280 @@
+.app {
+  /* background-color: #252d4a; */
+
+  width: 450px;
+  min-height: 200px;
+  height: min-content;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#alkonist{
+  background-color: #0081a7ff;
+  width: 100vw;
+
+}
+
+#alkonist-title-blurb {
+  height: 80vw;
+  background-color: #fdfcdcff;
+}
+
+#alkonist-main-blurb {
+  height: 80vw;
+  background-color: #f07167ff;
+}
+
+#caladrius{
+  background-color: #eec4af;
+  width: 100vw;
+}
+#caladrius-title-blurb {
+  height: 80vw;
+  background-color: #eddcd2;
+}
+
+#caladrius-main-blurb {
+  height: 80vw;
+  background-color: #e8d1c5;
+}
+
+#phoenix{
+  background-color: #0f4c5c;
+  width: 100vw;
+}
+#phoenix-title-blurb {
+  height: 80vw;
+  background-color: #9a031e;
+}
+
+#phoenix-main-blurb {
+  height: 80vw;
+  background-color: #e36414;
+}
+
+#sirin{
+  background-color: #2c6e49;
+  width: 100vw;
+}
+#sirin-title-blurb {
+  height: 80vw;
+  background-color: #ffc9e9;
+}
+
+#sirin-main-blurb {
+  height: 80vw;
+  background-color: #d68c45;
+}
+
+#rokh{
+  background-color: #3c1642;
+  width: 100vw;
+}
+#rokh-title-blurb {
+  height: 80vw;
+  background-color: #b2ff9e;
+}
+
+#rokh-main-blurb {
+  height: 80vw;
+  background-color: #1dd3b0;
+}
+
+body {
+    background-color: #abc4ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+.bg-navBar{
+  /* background-color: #fff; */
+  background: linear-gradient;
+  opacity: 0.8;
+}
+/* .bg-navBar:hover{
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+} */
+
+#WelcomePageTitle{
+  text-align: center;
+}
+#welcomePageForm{
+  height: 300px;
+}
+
+
+
+button {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #d7e3fcff;
+  outline: none;
+  transition: 0.3s ease-in-out;
+  margin: 15px
+}
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #b6ccfe;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: .3s ease-in-out;
+}
+
+button:hover {
+  transition: .4s ease-in-out;
+  background:  #d7e3fcff;
+}
+
+button:hover svg {
+  stroke-dashoffset: -480;
+}
+
+/* button {
+  transition: all .5s ease;
+  color: #fff;
+  border: 3px solid white;
+  font-family:'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 10px;
+  outline: none;
+  border-radius: 4px;
+}
+button:hover {
+  color: #001F3F;
+  background-color: #fff;
+} */
+
+
+/* Start of Clouds CSS */
+#clouds{
+  /* padding: 100px 0; */
+  /* background: #c9dbe9; */
+  background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+  background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+  background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+}
+.cloud {
+  width: 200px; height: 60px;
+  background: #fff;
+  border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  position: relative; 
+}
+
+
+.cloud:before, .cloud:after {
+  content: '';
+  position: absolute; 
+  background: #fff;
+  width: 100px; height: 80px;
+  position: absolute; top: -15px; left: 10px;
+  
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+}
+.cloud:after {
+  width: 120px; height: 120px;
+  top: -55px; left: auto; right: 15px;
+}
+.x1 {
+  -webkit-animation: moveclouds 15s linear infinite;
+  -moz-animation: moveclouds 15s linear infinite;
+  -o-animation: moveclouds 15s linear infinite;
+}
+.x2 {
+  left: 200px;
+  
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 0.6; /*opacity proportional to the size*/
+  
+  /*Speed will also be proportional to the size and opacity*/
+  /*More the speed. Less the time in 's' = seconds*/
+  -webkit-animation: moveclouds 25s linear infinite;
+  -moz-animation: moveclouds 25s linear infinite;
+  -o-animation: moveclouds 25s linear infinite;
+}
+.x3 {
+  left: -250px; top: -200px;
+  
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8; /*opacity proportional to the size*/
+  
+  -webkit-animation: moveclouds 20s linear infinite;
+  -moz-animation: moveclouds 20s linear infinite;
+  -o-animation: moveclouds 20s linear infinite;
+}
+.x4 {
+  left: 530px; top: -280px;
+  
+  -webkit-transform: scale(0.75);
+  -moz-transform: scale(0.75);
+  transform: scale(0.75);
+  opacity: 0.75; /*opacity proportional to the size*/
+  
+  -webkit-animation: moveclouds 18s linear infinite;
+  -moz-animation: moveclouds 18s linear infinite;
+  -o-animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+  left: -150px; top: -150px;
+  
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8; /*opacity proportional to the size*/
+  
+  -webkit-animation: moveclouds 20s linear infinite;
+  -moz-animation: moveclouds 20s linear infinite;
+  -o-animation: moveclouds 20s linear infinite;
+}
+.x6 {
+  left: 350px; top: 200px;
+  
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 0.8; /*opacity proportional to the size*/
+  
+  -webkit-animation: moveclouds 20s linear infinite;
+  -moz-animation: moveclouds 20s linear infinite;
+  -o-animation: moveclouds 20s linear infinite;
+}
+@-webkit-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+@-moz-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+@-o-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}

@@ -1,15 +1,27 @@
 import React from 'react'
 import BirdCardContainer from './BirdCardContainer'
 import BirdProfInfo from './BirdProfInfo'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container';
 
 function SirinProf() {
   return (
-    <div>
-        <h2>Sirin</h2>
-        <p>
-        Half human and half bird, your song draws around you the desires and hopes of humanity, causing those who hear it to follow your wishes at any peril.  Your home on the Vyraj river allows you to sing your melodies to the saints in heaven, your voice is so powerful only the departed can safely listen.  Your friend the Alkonost watches over the day, while you watch over the night, can you keep the skies safe?
-        </p>
-    </div>
+    <body id="sirin"> 
+    <Container className="p-3 vstack"> 
+      <Container id="sirin-title-blurb"className="p-5 mb-4 rounded-3">
+      <h1 className="header"> Sirin
+         </h1>
+       </Container>
+     </Container>
+     <br></br>
+     <Container id="sirin-main-blurb" className="p-5 mb-4 rounded-3">
+       <Row>
+         <Col>Profile Info</Col>
+         <Col>Collection</Col>
+       </Row>
+     </Container>
+ </body>
   )
 }
 
