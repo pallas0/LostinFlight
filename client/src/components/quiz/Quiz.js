@@ -1,21 +1,11 @@
 import React, { useReducer, useEffect, useState } from "react";
 
-function Quiz() {
-  const questionFormat = {
-    id: "",
-    questionText: "",
-    answers: [
-      {
-        answerText: "",
-        attribute: "",
-      },
-    ],
-  };
-
+function Quiz({questions}) {
+  // console.log(questions);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [inGame, setInGame] = useState(true)
-  const [initialList, setInitialList] = useState([]);
-  const [legend, setLegend] = useState()
+  const thequestions = questions.map((eachquestion) => eachquestion);
+
   // State reducer for attribute tally
   const initialState = {
     Ambition: 0,
@@ -57,10 +47,8 @@ function Quiz() {
     calculate()
   }, [inGame, calculate]);
 
-
-
   const handleAnswerButtonClick = (answer) => {
-    dispatch({ type: answer.attribute });
+    dispatch({ type: answer.trait });
     
     const nextQuestion = currentQuestion + 1;
     
@@ -74,8 +62,6 @@ function Quiz() {
 
     function calculate(){
       console.log("calculating..." )
-
-      // Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) 
 
       const values = Object.values(state)
       const max = Math.max(...values)
@@ -92,62 +78,15 @@ function Quiz() {
     function writeWinner(){
       console.log("will write to database friend")
     }
-
-  const questions = [
-    {
-      id: 1,
-      questionText: "Question 1",
-      answers: [
-        { answerText: "Empathy", attribute: "Empathy"},
-        { answerText: "Assertiveness", attribute: "Assertiveness"},
-        { answerText: "Creativity", attribute: "Creativity"},
-      ],
-    },
-    {
-      id: 2,
-      questionText: "Question 2",
-      answers: [
-        { answerText: "Assertiveness", attribute: "Assertiveness" },
-        { answerText: "Creativity", attribute: "Creativity" },
-        { answerText: "Ambition", attribute: "Ambition" },
-      ],
-    },
-    {
-      id: 3,
-      questionText: "Question text 3",
-      answers: [
-        { answerText: "Optimism", attribute: "Optimism" },
-        { answerText: "Creativity", attribute: "Creativity" },
-        { answerText: "Ambition", attribute: "Ambition" },
-      ],
-    },
-    {
-      id: 4,
-      questionText: "Question text 4",
-      answers: [
-        { answerText: "Assertiveness", attribute: "Assertiveness" },
-        { answerText: "Empathy", attribute: "Empathy" },
-        { answerText: "Optimism", attribute: "Optimism" },
-      ],
-    },
-    {
-      id: 5,
-      questionText: "Question text 5",
-      answers: [
-        { answerText: "Ambition", attribute: "Ambition" },
-        { answerText: "Optimism", attribute: "Optimism" },
-        { answerText: "Empathy", attribute: "Empathy" },
-      ],
-    },
-  ];
   function AnswerOptions(){
     return (
     <div className="answer-section">
-      {questions[currentQuestion].answers.map((answer) => (
+      {thequestions[currentQuestion].quiz_answers.map((answer) => (
         <button onClick={() => handleAnswerButtonClick(answer)}>
           {answer.answerText}
         </button>
       ))}
+      
       {    Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) }
     </div>
     )
@@ -161,7 +100,7 @@ function Quiz() {
             <span></span>
           </div>
           <div className="question-text">
-            {inGame ? questions[currentQuestion].questionText : "Questions Questions Questions..."}
+            {inGame ? thequestions[currentQuestion].questionText : "Questions Questions Questions..."}
           </div>
         </div>
         {inGame ? <AnswerOptions /> : null}
@@ -173,3 +112,5 @@ function Quiz() {
 }
 
 export default Quiz;
+
+  
