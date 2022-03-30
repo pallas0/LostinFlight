@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState } from "react";
+import { Redirect } from "react-router-dom"
 
 function Quiz({questions}) {
   // console.log(questions);
@@ -45,7 +46,7 @@ function Quiz({questions}) {
   
   useEffect(() => {
     calculate()
-  }, [inGame, calculate]);
+  }, [inGame]);
 
   const handleAnswerButtonClick = (answer) => {
     dispatch({ type: answer.trait });
@@ -57,6 +58,7 @@ function Quiz({questions}) {
     } else  {
       console.log("end of quiz");
       setInGame(false)
+      calculate()
     } 
   };
 
@@ -67,11 +69,14 @@ function Quiz({questions}) {
       const max = Math.max(...values)
 
       const arrayOfTraitResult = Object.keys(state).filter(key => state[key] === max)
+
         if (arrayOfTraitResult.length > 1) {
+
           console.log("tie breaker")
         } else {
           console.log("you win a " + arrayOfTraitResult[0])
-          writeWinner()
+          // writeWinner()
+          return <Redirect to="/" />
         }
         }
 
@@ -112,5 +117,3 @@ function Quiz({questions}) {
 }
 
 export default Quiz;
-
-  
