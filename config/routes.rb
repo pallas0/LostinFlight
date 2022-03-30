@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :quiz_answers
+  resources :quiz_questions
   resources :bird_observations
-  resources :quiz_users
   resources :quizzes, only: [:index, :show, :update, :create, :destroy]
   resources :legends
   resources :users, only: [:index, :show]
