@@ -14,9 +14,7 @@ function BirdCollection() {
       Welcome to your Collection {user.username}
         <EntryForm />
         <Gallery user={user} />
-        
-
-
+      
     </div>
   )
 }
