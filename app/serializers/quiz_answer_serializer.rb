@@ -1,4 +1,4 @@
 class QuizAnswerSerializer < ActiveModel::Serializer
-  attributes :id, :answerText, :attribute
-  has_one :quiz_question
+  attributes :id, :answerText, :trait
+  belongs_to :quiz_question
 end
