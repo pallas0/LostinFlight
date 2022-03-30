@@ -1,20 +1,22 @@
 # QuizUser.destroy_all
-# Legend.destroy_all
+Legend.destroy_all
 # User.destroy_all
 # Quiz.destroy_all
+User.destroy_all
+BirdObservation.destroy_all
 
 # puts "...seeding Legends..."
-# L1 = Legend.create(name: "Phoenix", bio: "Amazing", trait: "ambition")
-# L2 = Legend.create(name: "Caladrius", bio: "So cool", trait: "empathy")
-# L3 = Legend.create(name: "Roch", bio: "Jeez", trait: "assertiveness")
-# L4 = Legend.create(name: "Alkonost", bio: "Whoa", trait: "creativity")
-# L5 = Legend.create(name: "Sirin", bio: "Eh", trait: "ambition")
+L1 = Legend.create(name: "Phoenix", bio: "Amazing", trait: "ambition")
+L2 = Legend.create(name: "Caladrius", bio: "So cool", trait: "empathy")
+L3 = Legend.create(name: "Roch", bio: "Jeez", trait: "assertiveness")
+L4 = Legend.create(name: "Alkonost", bio: "Whoa", trait: "creativity")
+L5 = Legend.create(name: "Sirin", bio: "Eh", trait: "ambition")
 # puts "Seeding users"
-# U1 = User.create(username: "Jojo", legend_id: L1.id, birthday: "1999-12-31", admin: true)
-# U2 = User.create(username: "Georgie", legend_id: L2.id, birthday: "1999-12-31", admin: true)
-# U3 = User.create(username: "Fluff", legend_id: L3.id, birthday: "1999-12-31", admin: true)
-# U4 = User.create(username: "Arthur", legend_id: L3.id, birthday: "1999-12-31", admin: true)
-# U5 = User.create(username: "Jane", legend_id: L4.id, birthday: "1999-12-31", admin: true)
+U1 = User.create(username: "Jojo", legend_id: L1.id, birthday: "1999-12-31", admin: true)
+U2 = User.create(username: "Georgie", legend_id: L2.id, birthday: "1999-12-31", admin: true)
+U3 = User.create(username: "Fluff", legend_id: L3.id, birthday: "1999-12-31", admin: true)
+U4 = User.create(username: "Arthur", legend_id: L3.id, birthday: "1999-12-31", admin: true)
+U5 = User.create(username: "Jane", legend_id: L4.id, birthday: "1999-12-31", admin: true)
 # puts "Seeding Quizzes"
 # Q1 = Quiz.create(question: "You and your friends are lost in the woods. You", empathy: "Assure everyone that everything is ok and that you’ll find a way out together", assertiveness: "Take the lead and devise a plan that you urge everyone to follow ", creativity: "Trust your senses and walk confidently in the direction from which you came ")
 
@@ -43,5 +45,9 @@
 
 puts "seeding observed birds..."
 
+BirdObservation.create(user_id:2, region: "nebraska", species: "raven", date: "1999-12-31")
+BirdObservation.create(user_id:2, region: "colorado", species: "bluebird", date: "1999-12-31")
+BirdObservation.create(user_id:1, region: "colorado", species: "bluebird", date: "1999-12-31")
+BirdObservation.create(user_id:1, region: "alaska", species: "grackle", date: "1999-12-31")
 
 puts "...happy seeding..."
