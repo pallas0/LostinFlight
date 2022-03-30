@@ -2,19 +2,18 @@ import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import WelcomePage from './WelcomePage';
-import AlkonistProf from "./legend_profiles/AlkonistProf.js";
-import CaladriusProf from "./legend_profiles/CaladriusProf.js";
-import PhoenixProf from "./legend_profiles/PhoenixProf.js";
-import SirinProf from "./legend_profiles/SirinProf.js";
-import RokhProf from './legend_profiles/RokhProf';
+// import AlkonistProf from "./legend_profiles/AlkonistProf.js";
+// import CaladriusProf from "./legend_profiles/CaladriusProf.js";
+// import PhoenixProf from "./legend_profiles/PhoenixProf.js";
+// import SirinProf from "./legend_profiles/SirinProf.js";
+// import RokhProf from './legend_profiles/RokhProf';
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
 import { Route, Switch } from "react-router-dom";
-import SignUp from './SignUp';
-import Login from './Login';
-import Quiz from './components/quiz/Quiz'
+// import SignUp from './SignUp';
+// import Login from './Login';
 import BirdCollection from './components/collection/BirdCollection';
-
+import QuizContainer from './components/quiz/QuizContainer';
 
 
 
@@ -39,7 +38,7 @@ function App() {
           <BirdCollection />
         </Route>
         <Route path='/quiz' >
-          <Quiz />  
+          <QuizContainer />  
         </Route>
         <Route exact path='/'>
           <WelcomePage />
