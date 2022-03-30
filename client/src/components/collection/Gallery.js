@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function Gallery() {
-
+function Gallery( {user} ) {
+  console.log(user)
     // run fetch for gallery everytime a new one is added 
-    // useEffect(() => {
-    //   fetch('http://127.0.0.1:3000/bird_observations')
-    
-    //   return () => {
-    //     second
-    //   }
-    // }, [third])
+    useEffect(() => {
+      fetch(`http://127.0.0.1:3000/users/${user.id}/collection`)
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+    }, [])
     
   return (
-    <div>Gallery</div>
+    <div>
+      
+    </div>
   )
 }
 

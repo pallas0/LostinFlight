@@ -4,14 +4,16 @@ import Gallery from './Gallery'
 
 function BirdCollection() {
   const user = {
-
+    id: 1,
+    username: "Jojo",
+    birthday: "1999-12-31",
   }
 
   return (
     <div>
-      Welcome to your Collection USERNAME
+      Welcome to your Collection {user.username}
         <EntryForm />
-        <Gallery/>
+        <Gallery user={user} />
         
 
 
