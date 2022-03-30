@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     render json: user 
   end 
 
+  
+
   # This is for session staying logged in
   def show
     user = User.find_by!(id: session[:user_id])

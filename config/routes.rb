@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
   resources :bird_observations
-  resources :quiz_users
-  resources :quizzes, only: [:index, :show, :update, :create, :destroy]
   resources :legends
   resources :users, only: [:index, :show]
   post "/login", to: "sessions#create"
