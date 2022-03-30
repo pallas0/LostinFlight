@@ -3,8 +3,7 @@ import Container from 'react-bootstrap/esm/Container'
 import Col from 'react-bootstrap/esm/Col'
 import Row from 'react-bootstrap/esm/Row'
 
-function Gallery( {user, species, region} ) {
-
+function Gallery( { species, region} ) {
 
 
 
@@ -19,7 +18,7 @@ function Gallery( {user, species, region} ) {
   //   }, [])
 
 
-
+console.log(species, region)
 
   return (
     <div>

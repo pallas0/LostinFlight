@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar onLogout = {setUsername}/>
       <Switch>
         <Route path='/collection' >
           <BirdCollection />
@@ -42,7 +42,7 @@ function App() {
           <Quiz />  
         </Route>
         <Route exact path='/'>
-          <WelcomePage />
+          <WelcomePage onLogin={setUsername}/>
         </Route> 
       </Switch>
     </div>

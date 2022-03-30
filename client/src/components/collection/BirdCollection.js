@@ -32,10 +32,13 @@ useEffect (() => {
 const birdCardRender = birds.map((bird) => {
   return (
   <Gallery
+    key = {bird.id}
     species = {bird.species}
     region = {bird.region}
     />
     )})
+
+  console.log(birds)
   
 
 
@@ -44,8 +47,7 @@ const birdCardRender = birds.map((bird) => {
     <div>
       Welcome to your Collection {user.username}
         <EntryForm />
-        <Gallery user={user} />
-      
+        {birdCardRender}
     </div>
   )
 }
