@@ -1,21 +1,19 @@
 import React from 'react'
-import BirdCardContainer from './BirdCardContainer'
-import BirdProfInfo from './BirdProfInfo'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container';
 
-function RokhProf() {
+function PhoenixProf() {
   return (
-    <body id="rokh"> 
+    <body id="phoenix"> 
     <Container className="p-3 vstack"> 
-      <Container id="rokh-title-blurb"className="p-5 mb-4 rounded-3">
-      <h1 className="header"> Rokh
+      <Container id="phoenix-title-blurb"className="p-5 mb-4 rounded-3">
+      <h1 className="header"> Phoenix
          </h1>
        </Container>
      </Container>
      <br></br>
-     <Container id="rokh-main-blurb" className="p-5 mb-4 rounded-3">
+     <Container id="phoenix-main-blurb" className="p-5 mb-4 rounded-3">
        <Row>
          <Col>Profile Info</Col>
          <Col>Collection</Col>
@@ -25,5 +23,4 @@ function RokhProf() {
   )
 }
 
-export default RokhProf
-
+export default PhoenixProf

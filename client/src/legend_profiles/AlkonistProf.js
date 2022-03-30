@@ -1,8 +1,6 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container';
 // import Toast from 'react-bootstrap/Toast';
-import BirdCardContainer from './BirdCardContainer'
-import BirdProfInfo from './BirdProfInfo'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 

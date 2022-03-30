@@ -2,16 +2,17 @@ import './App.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import WelcomePage from './WelcomePage';
-import AlkonistProf from "./AlkonistProf.js";
-import CaladriusProf from "./CaladriusProf.js";
-import PhoenixProf from "./PhoenixProf.js";
-import SirinProf from "./SirinProf.js";
-import RokhProf from './RokhProf';
+import AlkonistProf from "./legend_profiles/AlkonistProf.js";
+import CaladriusProf from "./legend_profiles/CaladriusProf.js";
+import PhoenixProf from "./legend_profiles/PhoenixProf.js";
+import SirinProf from "./legend_profiles/SirinProf.js";
+import RokhProf from './legend_profiles/RokhProf';
 import NavBar from './NavBar';
 import React, {useState, useEffect} from 'react'
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import SignUp from './SignUp';
 import Login from './Login';
+import Quiz from './components/quiz/Quiz'
 
 
 
@@ -31,27 +32,15 @@ function App() {
 
   return (
     <div>
-      <NavBar/>
-     <div class='container-fluid'>
-     </div>
-    <Route exact path='/AlkonistProf'>
-      <AlkonistProf />
-    </Route>
-    <Route exact path='/CaladriusProf'>
-      <CaladriusProf />
-    </Route>
-    <Route exact path='/PhoenixProf'>
-      <PhoenixProf />
-    </Route>
-    <Route exact path='/RokhProf'>
-      <RokhProf />
-    </Route>
-    <Route exact path='/SirinProf'>
-      <SirinProf />
-    </Route>
-    <Route exact path='/'>
-       <WelcomePage />
-     </Route>
+        <NavBar/>
+      <Switch>
+        <Route path='/quiz' >
+          <Quiz />  
+        </Route>
+        <Route exact path='/'>
+          <WelcomePage />
+        </Route> 
+     </Switch>
     </div>
 
   );
