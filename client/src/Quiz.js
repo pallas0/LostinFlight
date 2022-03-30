@@ -15,6 +15,7 @@ function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [inGame, setInGame] = useState(true)
   const [initialList, setInitialList] = useState([]);
+  const [legend, setLegend] = useState()
   // State reducer for attribute tally
   const initialState = {
     Ambition: 0,
@@ -47,78 +48,120 @@ function Quiz() {
     }
     return newState;
   }
-  function handleClick(e) {
-    console.log(e);
-    dispatch({ type: e.target.name });
-  }
+
   useEffect(() => {
     console.log(state, inGame);
   }, [state, inGame]);
+  
+  useEffect(() => {
+    calculate()
+  }, [inGame]);
+
+
 
   const handleAnswerButtonClick = (answer) => {
     dispatch({ type: answer.attribute });
-
+    
     const nextQuestion = currentQuestion + 1;
-    console.log(nextQuestion);
-    if (nextQuestion < questions.length) {
+    
+    if (nextQuestion < 5) {
       setCurrentQuestion(nextQuestion);
     } else  {
       console.log("end of quiz");
       setInGame(false)
     } 
   };
+
+    function calculate(){
+      console.log("calculating..." )
+
+      // Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) 
+
+
+      const values = Object.values(state)
+      const max = Math.max(...values)
+
+      const arrayOfTraitResult = Object.keys(state).filter(key => state[key] === max)
+        if (arrayOfTraitResult.length > 1) {
+          tieBreaker(arrayOfTraitResult)
+          console.log("tie breaker")
+        } else {
+          console.log("you win a " + arrayOfTraitResult[0])
+          writeWinner()
+        }
+    }
+    function tieBreaker(arr) {
+      console.log("in the tiebreaker")
+      console.log(arr)
+      // arr.map(answer => {
+      //   <button >
+      //     {answer}
+      //   </button>
+      // })
+    }
+    function writeWinner(){
+      console.log("will write to database friend")
+    }
+
   const questions = [
     {
       id: 1,
-      questionText: "You and your friends are lost in the woods. You",
+      questionText: "Question 1",
       answers: [
-        {
-          answerText:
-            "Assure everyone that everything is ok and that you’ll find a way out together",
-          attribute: "Empathy",
-        },
-        {
-          answerText:
-            "Take the lead and devise a plan that you urge everyone to follow ",
-          attribute: "Assertiveness",
-        },
-        {
-          answerText:
-            "Trust your senses and walk confidently in the direction from which you came",
-          attribute: "Creativity",
-        },
+        { answerText: "Empathy", attribute: "Empathy"},
+        { answerText: "Assertiveness", attribute: "Assertiveness"},
+        { answerText: "Creativity", attribute: "Creativity"},
       ],
     },
     {
       id: 2,
-      questionText: "Question text 2",
+      questionText: "Question 2",
       answers: [
-        { answerText: "Goblet 3", attribute: "Assertiveness" },
-        { answerText: "Goblet 1", attribute: "Creativity" },
-        { answerText: "Goblet 2", attribute: "Ambition" },
+        { answerText: "Assertiveness", attribute: "Assertiveness" },
+        { answerText: "Creativity", attribute: "Creativity" },
+        { answerText: "Ambition", attribute: "Ambition" },
       ],
     },
     {
       id: 3,
       questionText: "Question text 3",
       answers: [
-        {
-          answerText:
-            "Congratulate the opponent & dismiss yourself to search for more prey.",
-          attribute: "Creativity",
-        },
-        {
-          answerText: "Plan a rematch, training starts now.",
-          attribute: "Ambition",
-        },
-        {
-          answerText:
-            "You’re happy with the battle and congratulate the opponent on their win, there will be more soon.",
-          attribute: "Optimism",
-        },
+        { answerText: "Optimism", attribute: "Optimism" },
+        { answerText: "Creativity", attribute: "Creativity" },
+        { answerText: "Ambition", attribute: "Ambition" },
+      ],
+    },
+    {
+      id: 4,
+      questionText: "Question text 4",
+      answers: [
+        { answerText: "Assertiveness", attribute: "Assertiveness" },
+        { answerText: "Empathy", attribute: "Empathy" },
+        { answerText: "Optimism", attribute: "Optimism" },
+      ],
+    },
+    {
+      id: 5,
+      questionText: "Question text 5",
+      answers: [
+        { answerText: "Ambition", attribute: "Ambition" },
+        { answerText: "Optimism", attribute: "Optimism" },
+        { answerText: "Empathy", attribute: "Empathy" },
       ],
     },
   ];
+  function AnswerOptions(){
+    return (
+    <div className="answer-section">
+      {questions[currentQuestion].answers.map((answer) => (
+        <button onClick={() => handleAnswerButtonClick(answer)}>
+          {answer.answerText}
+        </button>
+      ))}
+      {/* {    Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) } */}
+    </div>
+    )
+  }
 
   return (
     <div className="app">
@@ -128,17 +171,12 @@ function Quiz() {
             <span></span>
           </div>
           <div className="question-text">
-            {questions[currentQuestion].questionText}
+            {inGame ? questions[currentQuestion].questionText : "Questions Questions Questions..."}
           </div>
         </div>
-        <div className="answer-section">
-          {questions[currentQuestion].answers.map((answer) => (
-            <button onClick={() => handleAnswerButtonClick(answer)}>
-              {answer.answerText}
-            </button>
-          ))}
-          {state.Empathy}
-        </div>
+        {inGame ? <AnswerOptions /> : null}
+        <button onClick={calculate}>Calculate</button>
+        
       </>
     </div>
   );
