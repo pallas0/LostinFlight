@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     
   end
 
+  
+
   # This is for session staying logged in
   def show
     # byebug
