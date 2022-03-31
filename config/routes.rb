@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # custom collection route
   get "/users/:id/collection", to: "bird_observations#collection_index"
+  get "/users/:id/legend", to: "users#user_legend"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

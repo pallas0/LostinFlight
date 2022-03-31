@@ -54,6 +54,10 @@ function App() {
   function handleNewUserCreate(newCreatedUser){
     setUsername(newCreatedUser)
     setNewLegendShowing(true)
+<<<<<<< HEAD
+>>>>>>> main
+=======
+    console.log(newCreatedUser)
 >>>>>>> main
   }
 
@@ -69,10 +73,14 @@ function App() {
   return (
     <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <NavBar onLogout={setUsername} user={username} />
 =======
           <button onClick={() => setNewLegendShowing(true)}>show me</button>
       {/* <NavBar onLogout={setUsername} user={username}/> */}
+>>>>>>> main
+=======
+      <NavBar onLogout={setUsername} user={username}/>
 >>>>>>> main
       <Switch>
         <Route path="/collection">
@@ -85,7 +93,13 @@ function App() {
           <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser} />
         </Route>
       </Switch>
+<<<<<<< HEAD
       {preGameShowing ? <PreGameModal newUser={newUser} /> : null}
+=======
+          {/* <button onClick={() => setNewLegendShowing(true)}>show me</button> */}
+      {preGameShowing ? <PreGameModal newUser={newUser}/> : null}
+      {newLegendShowing ? <NewLegendModal /> : null}
+>>>>>>> main
     </div>
   );
 }
