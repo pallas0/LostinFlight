@@ -20,7 +20,6 @@ class UsersController < ApplicationController
 
   # This is for session staying logged in
   def show
-    # byebug
     user = User.find_by(id: session[:user_id])
     if user 
       render json: user

@@ -12,11 +12,6 @@ function SignUp( { onNewSignUp } ) {
     legend_id: ""
   }) 
 
-  // useEffect(()=>{
-  //   console.log(formData)
-  //   console.log(formError)
-  // },[formData])
-
 //handle birthday input
   function handleChange(event) {
     const name = event.target.name;
@@ -46,8 +41,7 @@ function SignUp( { onNewSignUp } ) {
 
       }
 
-  // this is our final point rn 10:19 3/30 - it needs to open a modal window, send the formData
-  // to the modal, and carry it over to the Quiz
+
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);

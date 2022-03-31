@@ -25,18 +25,14 @@ function PreGameModal( { newUser } ) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            {/* <Modal.Title>Modal title</Modal.Title> */}
           </Modal.Header>
-          <Modal.Body>
-            <h3>Welcome {newUser.username}</h3>
-            <p>Before you can join the flock we need to learn a bit more about you.</p>
-          </Modal.Body>
+             <Modal.Body>
+                <h3>Welcome {newUser.username}</h3>
+                <p>Before you can join the flock we need to learn a bit more about you.</p>
+             </Modal.Body>
           <Modal.Footer>
-            {/* <Button variant="light" onClick={handleClose}>
-              I made a mistake, take me back!
-            </Button> */}
-            <Button variant="outline-dark" onClick={handleStartQuiz}>Let's Go!</Button>
-          </Modal.Footer>
+                <Button variant="outline-dark" onClick={handleStartQuiz}>Let's Go!</Button>
+           </Modal.Footer>
         </Modal>
       </>
     );

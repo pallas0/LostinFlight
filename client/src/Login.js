@@ -7,22 +7,8 @@ function Login( { onLogin } ) {
   const [username, setUsername] = useState("")
   const [userError, setUserError] = useState(false)
 
-  // original handleSubmit for example and just in case
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   fetch("/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ username }),
-  //   })
-  //   .then((r) => r.json())
-  //   .catch((error) => console.log(error))
-  //   .then((user) => onLogin(user))
-  // }
+ 
 
-// newly updated handleSubmit with error catch
 // for problems coming back from fetch
   function handleSubmit2(e) {
     e.preventDefault();
