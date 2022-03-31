@@ -32,19 +32,14 @@ console.log(loggedInUser)
         switch (trait_to_parse) {
             case "Ambition":
                 return 1
-                break
             case "Empathy":
                 return 2
-                break
             case "Creativity":
                 return 3
-                break
             case "Assertiveness":
                 return 4
-                break
             case "Optimism":
                 return 5
-                break
             default:
                 return 0
         }

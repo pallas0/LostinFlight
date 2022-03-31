@@ -84,7 +84,6 @@ function Quiz( { questions, onProfileUpdate } ) {
         }
 
     function writeWinner(discoveredTrait) {
-      console.log(discoveredTrait)
       onProfileUpdate(discoveredTrait)
     }
   function AnswerOptions(){

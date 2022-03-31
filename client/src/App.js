@@ -35,8 +35,8 @@ function App() {
   function handleNewUserCreate(newCreatedUser){
     setUsername(newCreatedUser)
   }
-  console.log(newUser, preGameShowing)
 
+  //fetch the logged in user
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
