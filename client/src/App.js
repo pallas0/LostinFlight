@@ -15,11 +15,13 @@ import { Route, Switch } from "react-router-dom";
 import BirdCollection from './components/collection/BirdCollection';
 import QuizContainer from './components/quiz/QuizContainer';
 import PreGameModal from './PreGameModal';
+import NewLegendModal from './NewLegendModal';
 
 
 function App() {
   const [username, setUsername] = useState(null);
   const [preGameShowing, setPreGameShowing] = useState(false)
+  const [newLegendShowing, setNewLegendShowing] = useState(false)
   const [newUser, setNewUser] = useState({
     username: "",
     birthday: "",
@@ -34,6 +36,7 @@ function App() {
 
   function handleNewUserCreate(newCreatedUser){
     setUsername(newCreatedUser)
+    setNewLegendShowing(true)
   }
 
   //fetch the logged in user
@@ -48,7 +51,8 @@ function App() {
 
   return (
     <div>
-      <NavBar onLogout={setUsername} user={username}/>
+          <button onClick={() => setNewLegendShowing(true)}>show me</button>
+      {/* <NavBar onLogout={setUsername} user={username}/> */}
       <Switch>
         <Route path='/collection' >
           <BirdCollection />

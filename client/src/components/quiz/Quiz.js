@@ -1,12 +1,18 @@
 import React, { useReducer, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom"
-
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Stack from 'react-bootstrap/Stack'
+ 
 function Quiz( { questions, onProfileUpdate } ) {
   // console.log(questions);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [inGame, setInGame] = useState(true)
   const thequestions = questions.map((eachquestion) => eachquestion);
   let history = useHistory()
+  
   
 
   // State reducer for attribute tally
@@ -73,12 +79,14 @@ function Quiz( { questions, onProfileUpdate } ) {
       const arrayOfTraitResult = Object.keys(state).filter(key => state[key] === max)
 
         if (arrayOfTraitResult.length > 1) {
-
+          // writeWinner(Math.floor(Math.random() * 6))
+          // return history.push("/collection")
           console.log("tie breaker")
         } else {
           const discoveredTrait = arrayOfTraitResult[0]
           console.log("you win a " + arrayOfTraitResult[0])
           writeWinner(discoveredTrait)
+          
           return history.push("/collection")
         }
         }
@@ -88,34 +96,39 @@ function Quiz( { questions, onProfileUpdate } ) {
     }
   function AnswerOptions(){
     return (
-    <div className="answer-section">
+    <Container className="d-grid gap-2" >
+      <Stack gap={3}>
       {thequestions[currentQuestion].quiz_answers.map((answer) => (
-        <button onClick={() => handleAnswerButtonClick(answer)}>
+        <Button 
+        variant={"outline-dark"} 
+        onClick={() => handleAnswerButtonClick(answer)}
+        size="lg">
           {answer.answerText}
-        </button>
+        </Button>
       ))}
-      
-      {    Object.keys(state).reduce((a, b) => state[a] > state[b] ? a : b) }
-    </div>
+      </Stack>
+    </Container>
     )
   }
 
   return (
-    <div className="app">
-      <>
-        <div className="question-section">
-          <div className="question-count">
-            <span></span>
-          </div>
-          <div className="question-text">
-            {inGame ? thequestions[currentQuestion].questionText : "Questions Questions Questions..."}
-          </div>
-        </div>
+    <Container className="app d-flex align-items-center justify-content-center">
+        <Stack gap={3} className="question-section align-baseline">
+          <Row className="question-count d-flex">
+            <Col className="d-flex">
+              <p>Question number <span>{thequestions[currentQuestion].id}</span></p>
+            </Col>
+          </Row>
+            <hr/>
+          <Row className="question-text">
+            <Col>
+              {inGame ? thequestions[currentQuestion].questionText : "Questions Questions Questions..."}
+            </Col>
+          </Row>
+        </Stack>
         {inGame ? <AnswerOptions /> : null}
-        <button onClick={calculate}>Calculate</button>
-        
-      </>
-    </div>
+        {/* <button onClick={calculate}>Calculate</button> */}
+    </Container>
   );
 }
 
