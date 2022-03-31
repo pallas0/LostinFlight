@@ -14,6 +14,7 @@ import { Route, Switch } from "react-router-dom";
 // import Login from './Login';
 import BirdCollection from './components/collection/BirdCollection';
 import QuizContainer from './components/quiz/QuizContainer';
+import PreGameModal from './PreGameModal';
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
     setPreGameShowing(true)
   }
 
-  console.log(preGameShowing)
+  console.log(newUser, preGameShowing)
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -55,6 +56,7 @@ function App() {
           <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser}/>
         </Route> 
       </Switch>
+      {preGameShowing ? <PreGameModal /> : null}
     </div>
 
   );

@@ -62,7 +62,7 @@ function SignUp( { onNewSignUp } ) {
       return null
     } else {
       onNewSignUp(formData)
-      console.log("good data")
+      console.log("good data sending to app")
     }
   }
 
