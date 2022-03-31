@@ -1,11 +1,11 @@
 .app {
   /* background-color: #252d4a; */
 
-  width: 450px;
-  min-height: 200px;
-  height: min-content;
+  min-width: 450px;
+  min-height: 500px;
   border-radius: 15px;
   padding: 20px;
+  margin: 6em 4em 5em 4em ;
   box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: space-evenly;
@@ -112,8 +112,8 @@ body {
 
 
 button {
-  width: 180px;
-  height: 60px;
+  min-width: 180px;
+  min-height: 60px;
   cursor: pointer;
   background: transparent;
   border: 1px solid #d7e3fcff;

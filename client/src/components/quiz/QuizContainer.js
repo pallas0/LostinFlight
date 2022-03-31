@@ -64,7 +64,6 @@ console.log(loggedInUser)
 
   return (
     <div>
-      
       <Quiz onProfileUpdate={updateProfile} questions={questions} />
     </div>
   );
