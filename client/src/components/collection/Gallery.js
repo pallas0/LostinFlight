@@ -1,17 +1,28 @@
-import React, { useEffect } from 'react'
+// import React, { useEffect, useState } from 'react'
+import Container from 'react-bootstrap/esm/Container'
+import Card from 'react-bootstrap/esm/Card'
+import Col from 'react-bootstrap/esm/Col'
 
-function Gallery( {user} ) {
-  console.log(user)
-    // run fetch for gallery everytime a new one is added 
-    useEffect(() => {
-      fetch(`http://127.0.0.1:3000/users/${user.id}/collection`)
-      .then(resp => resp.json())
-      .then(data => console.log(data))
-    }, [])
-    
+
+function Gallery( {species, region, image, date} ) {
+
+
   return (
     <div>
-      
+      <Container>
+          <Col>
+               <Card class='sm'>
+               Image: {image}
+               <br></br>
+                Species: {species}
+               <br></br>
+               Region: {region}
+               <br></br>
+               Date: {date}
+               </Card>
+          </Col>
+      </Container> 
+
     </div>
   )
 }

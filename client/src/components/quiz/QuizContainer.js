@@ -64,6 +64,7 @@ function QuizContainer({ user, onNewUserCreate }) {
   }
 
   return (
+<<<<<<< HEAD
     <>
       <div>
         <Quiz onProfileUpdate={updateProfile} questions={questions} />
@@ -72,6 +73,11 @@ function QuizContainer({ user, onNewUserCreate }) {
         <QuizResultsModal />
       </div>
     </>
+=======
+    <div>
+      <Quiz onProfileUpdate={updateProfile} questions={questions} />
+    </div>
+>>>>>>> main
   );
 }
 

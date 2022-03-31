@@ -26,8 +26,11 @@ function handleSubmit(e) {
         <div>
             EntryForm
             <form onSubmit={handleSubmit}>
+                Species:
                 <input name="species" type="text" onChange={handleChange}></input>
+                Region:
                 <input name="region" type="text" onChange={handleChange}></input>
+                Image:
                 <input name="image" type="text" onChange={handleChange}></input>
                 <button type="submit" value="add">Add</button>
             </form>

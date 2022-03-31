@@ -12,6 +12,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 // import SignUp from './SignUp';
 // import Login from './Login';
+<<<<<<< HEAD
 import BirdCollection from "./components/collection/BirdCollection";
 import QuizContainer from "./components/quiz/QuizContainer";
 import PreGameModal from "./PreGameModal";
@@ -25,6 +26,18 @@ function App() {
   }};
   const [username, setUsername] = useState({ userObj });
   const [preGameShowing, setPreGameShowing] = useState(false);
+=======
+import BirdCollection from './components/collection/BirdCollection';
+import QuizContainer from './components/quiz/QuizContainer';
+import PreGameModal from './PreGameModal';
+import NewLegendModal from './NewLegendModal';
+
+
+function App() {
+  const [username, setUsername] = useState(null);
+  const [preGameShowing, setPreGameShowing] = useState(false)
+  const [newLegendShowing, setNewLegendShowing] = useState(false)
+>>>>>>> main
   const [newUser, setNewUser] = useState({
     userObj
 });
@@ -34,8 +47,14 @@ function App() {
     setPreGameShowing(true);
   }
 
+<<<<<<< HEAD
   function handleNewUserCreate(newCreatedUser) {
     setUsername(newCreatedUser);
+=======
+  function handleNewUserCreate(newCreatedUser){
+    setUsername(newCreatedUser)
+    setNewLegendShowing(true)
+>>>>>>> main
   }
 
   //fetch the logged in user
@@ -49,7 +68,12 @@ function App() {
 
   return (
     <div>
+<<<<<<< HEAD
       <NavBar onLogout={setUsername} user={username} />
+=======
+          <button onClick={() => setNewLegendShowing(true)}>show me</button>
+      {/* <NavBar onLogout={setUsername} user={username}/> */}
+>>>>>>> main
       <Switch>
         <Route path="/collection">
           <BirdCollection currentuser={username} />
