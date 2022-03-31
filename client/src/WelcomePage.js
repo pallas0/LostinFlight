@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header.js';
 import SignUp from './SignUp.js';
 import Login from './Login.js';
 import Container from 'react-bootstrap/esm/Container';
@@ -9,7 +8,11 @@ import Card from 'react-bootstrap/Card';
 // import styled, {keyframes} from 'styled-components' 
 
 
-function WelcomePage({onLogin}) {
+function WelcomePage( { onLogin, welcomeNewUser } ) {
+
+  function handleNewSignUp(newUser) {
+    welcomeNewUser(newUser)
+  }
   return (
 
   <div id="clouds">
@@ -29,7 +32,7 @@ function WelcomePage({onLogin}) {
         </Col>
         <Col>
           <Card>
-            <SignUp/>
+            <SignUp onNewSignUp={handleNewSignUp}/>
           </Card>
         </Col>
        </Row>

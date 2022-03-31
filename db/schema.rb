@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_30_133239) do
+ActiveRecord::Schema.define(version: 2022_03_30_173545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,23 +34,17 @@ ActiveRecord::Schema.define(version: 2022_03_30_133239) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quiz_users", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "quiz_id", null: false
-    t.integer "response"
+  create_table "quiz_answers", force: :cascade do |t|
+    t.string "answerText"
+    t.string "trait"
+    t.bigint "quiz_question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["quiz_id"], name: "index_quiz_users_on_quiz_id"
-    t.index ["user_id"], name: "index_quiz_users_on_user_id"
+    t.index ["quiz_question_id"], name: "index_quiz_answers_on_quiz_question_id"
   end
 
-  create_table "quizzes", force: :cascade do |t|
-    t.string "question"
-    t.string "empathy"
-    t.string "assertiveness"
-    t.string "creativity"
-    t.string "ambition"
-    t.string "optimism"
+  create_table "quiz_questions", force: :cascade do |t|
+    t.string "questionText"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -66,7 +60,6 @@ ActiveRecord::Schema.define(version: 2022_03_30_133239) do
   end
 
   add_foreign_key "bird_observations", "users"
-  add_foreign_key "quiz_users", "quizzes"
-  add_foreign_key "quiz_users", "users"
+  add_foreign_key "quiz_answers", "quiz_questions"
   add_foreign_key "users", "legends"
 end

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :quiz_answers
+  resources :quiz_questions
   resources :bird_observations
-  resources :quiz_users
-  resources :quizzes, only: [:index, :show, :update, :create, :destroy]
+  # resources :quizzes, only: [:index, :show, :update, :create, :destroy]
   resources :legends
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show, :update, :create]
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
