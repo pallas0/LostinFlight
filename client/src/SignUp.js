@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 
-function SignUp() {
+function SignUp( { onNewSignUp } ) {
   const [formError, setFormError] = useState(false)
   const [formData, setFormData] = useState({
     username: "",
@@ -39,6 +39,7 @@ function SignUp() {
     const found = value.match(regex)
     //if the array exists then set error to true, else false
     found ? setFormError(true) : setFormError(false)
+
       setFormData({
           ...formData,
           [name]: value,
@@ -51,6 +52,22 @@ function SignUp() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
+    if (formData.username.length <= 5){
+      console.log("name too short")
+      setFormError(true)
+      return null
+    } else if (formData.birthday.length === 0){
+      console.log("bday bad")
+      setFormError(true)
+      return null
+    } else {
+      onNewSignUp(formData)
+      console.log("good data")
+    }
+  }
+
+  function onFocus() {
+    setFormError(false)
   }
 
   //custom style for error text
@@ -60,8 +77,8 @@ function SignUp() {
   }
 
   // two different button styles to render
-  const enabledButton = <Button variant="outline-dark" type="submit" onclick={handleSubmit} >Submit</Button>
-  const disabledButton = <Button variant="light" disabled >Submit</Button>
+  const enabledButton = <Button variant="outline-dark" type="submit" onClick={handleSubmit} >Sign Up!</Button>
+  const disabledButton = <Button variant="light" disabled >Sign Up!</Button>
 
   return (
     <div>
@@ -69,7 +86,7 @@ function SignUp() {
         <Form>
           <Form.Group controlId="signupform.username">
             <Form.Label>Username:</Form.Label>
-            {formError ? <Form.Label style={errStyle}>letters and numbers only</Form.Label> : null }
+            {formError ? <Form.Label style={errStyle}>5 or longer letters and numbers only</Form.Label> : null }
             <Form.Control 
             type="text" 
             placeholder="Type username here.." 
@@ -84,7 +101,8 @@ function SignUp() {
             placeholder="Enter Birthday here.." 
             name="birthday" 
             value={formData.birthday} 
-            onChange={handleChange}/>
+            onChange={handleChange}
+            onFocus={onFocus}/>
           </Form.Group>
           {formError ?  disabledButton : enabledButton}
           </Form>

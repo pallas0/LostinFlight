@@ -65,7 +65,7 @@ function renderUserError(error){
 
 // if click back on the field resets userError to false
 // this is so the conditional rendering of input bg goes back
-function onFocus(e) {
+function onFocus() {
   setUserError(false)
 }
 //set custom style for the background of the input

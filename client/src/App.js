@@ -18,6 +18,20 @@ import QuizContainer from './components/quiz/QuizContainer';
 
 function App() {
   const [username, setUsername] = useState(null);
+  const [preGameShowing, setPreGameShowing] = useState(false)
+  const [newUser, setNewUser] = useState({
+    username: "",
+    birthday: "",
+    image: "",
+    legend_id: ""
+  })
+
+  function welcomeNewUser(newUser) {
+    setNewUser(newUser)
+    setPreGameShowing(true)
+  }
+
+  console.log(preGameShowing)
 
   useEffect(() => {
     fetch("/me").then((response) => {
@@ -27,7 +41,6 @@ function App() {
     });
   }, []);
 
-
   return (
     <div>
       <NavBar onLogout={setUsername} user={username}/>
@@ -36,10 +49,10 @@ function App() {
           <BirdCollection />
         </Route>
         <Route path='/quiz' >
-          <QuizContainer user={username}/>  
+          <QuizContainer user={newUser}/>  
         </Route>
         <Route exact path='/'>
-          <WelcomePage onLogin={setUsername}/>
+          <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser}/>
         </Route> 
       </Switch>
     </div>
