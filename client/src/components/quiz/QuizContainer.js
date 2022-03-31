@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Quiz from "./Quiz";
 
-function QuizContainer() {
+function QuizContainer( { user } ) {
+  // const {id, name} = user
      let emptyobj = {
        id: "",
        questionText: "",
@@ -12,13 +13,13 @@ function QuizContainer() {
        ],
      };
   const [questions, setQuestions] = useState([emptyobj]);
+  const [loggedInUser, setLoggedInUser] = useState({})
+  
+  useEffect(()=> {
+    setLoggedInUser(user)
+  }, [user])
 
-  const userTest = {
-    id: 1,
-    name: "person"
-  }
-
-  // console.log(username)
+// console.log(loggedInUser)
 
   useEffect(() => {
     fetch("http://127.0.0.1:3000/quiz_questions")
@@ -49,13 +50,12 @@ function QuizContainer() {
                 return 0
         }
     }
-    
     const traitId = parseTrait(discoveredTrait)
-    console.log(traitId)
-    const updates ={
+    // console.log(traitId)
+    const updates = {
         legend_id: traitId
     }
-    fetch(`http://127.0.0.1/users/${userTest.id}`, {
+    fetch(`http://127.0.0.1:3000/users/${loggedInUser.id}`, {
         method: "PATCH",
         headers: {
         "Content-Type": "application/json",
@@ -68,6 +68,7 @@ function QuizContainer() {
 
   return (
     <div>
+      
       <Quiz onProfileUpdate={updateProfile} questions={questions} />
     </div>
   );

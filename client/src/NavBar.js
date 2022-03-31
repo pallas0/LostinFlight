@@ -18,6 +18,7 @@ function NavBar( {onLogout} ) {
         <Nav className="me-auto">
           <button onClick={handleLogout}>Logout</button>
         </Nav>
+        {/* <h2>Welcome {state.username}</h2> */}
        </Container>
     </Navbar>
     </div>

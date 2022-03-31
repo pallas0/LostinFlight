@@ -36,7 +36,7 @@ function App() {
           <BirdCollection />
         </Route>
         <Route path='/quiz' >
-          <QuizContainer />  
+          <QuizContainer user={username}/>  
         </Route>
         <Route exact path='/'>
           <WelcomePage onLogin={setUsername}/>
