@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Quiz from "./Quiz";
 
-function QuizContainer() {
+function QuizContainer( { user, onNewUserCreate } ) {
      let emptyobj = {
        id: "",
        questionText: "",
@@ -12,13 +12,13 @@ function QuizContainer() {
        ],
      };
   const [questions, setQuestions] = useState([emptyobj]);
+  const [loggedInUser, setLoggedInUser] = useState({})
+  
+  useEffect(()=> {
+    setLoggedInUser(user)
+  }, [user])
 
-  const userTest = {
-    id: 1,
-    name: "person"
-  }
-
-  // console.log(username)
+console.log(loggedInUser)
 
   useEffect(() => {
     fetch("http://127.0.0.1:3000/quiz_questions")
@@ -32,42 +32,39 @@ function QuizContainer() {
         switch (trait_to_parse) {
             case "Ambition":
                 return 1
-                break
             case "Empathy":
                 return 2
-                break
             case "Creativity":
                 return 3
-                break
             case "Assertiveness":
                 return 4
-                break
             case "Optimism":
                 return 5
-                break
             default:
                 return 0
         }
     }
-    
     const traitId = parseTrait(discoveredTrait)
-    console.log(traitId)
-    const updates ={
+
+    const userToWrite = {
+        username: loggedInUser.username,
+        birthday: loggedInUser.birthday,
         legend_id: traitId
     }
-    fetch(`http://127.0.0.1/users/${userTest.id}`, {
-        method: "PATCH",
+    fetch(`http://127.0.0.1:3000/users/`, {
+        method: "POST",
         headers: {
         "Content-Type": "application/json",
         },
-        body: JSON.stringify(updates),
+        body: JSON.stringify(userToWrite),
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => onNewUserCreate(data))
   }
 
   return (
     <div>
+      
       <Quiz onProfileUpdate={updateProfile} questions={questions} />
     </div>
   );

@@ -7,6 +7,7 @@ function Quiz( { questions, onProfileUpdate } ) {
   const [inGame, setInGame] = useState(true)
   const thequestions = questions.map((eachquestion) => eachquestion);
   let history = useHistory()
+  
 
   // State reducer for attribute tally
   const initialState = {
@@ -78,12 +79,11 @@ function Quiz( { questions, onProfileUpdate } ) {
           const discoveredTrait = arrayOfTraitResult[0]
           console.log("you win a " + arrayOfTraitResult[0])
           writeWinner(discoveredTrait)
-          return history.push("/")
+          return history.push("/collection")
         }
         }
 
     function writeWinner(discoveredTrait) {
-      console.log(discoveredTrait)
       onProfileUpdate(discoveredTrait)
     }
   function AnswerOptions(){

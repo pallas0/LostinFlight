@@ -50,9 +50,9 @@ console.log(birds)
     <div>
       Welcome to your Collection {user.username}
         <EntryForm />
-        <Col>
-        {birdCardRender}
-        </Col>
+        <Row xs={1} md={2} lg={3}>
+           {birdCardRender}
+        </Row>
     </div>
   )
 }

@@ -8,18 +8,22 @@ function Gallery( {species, region, image, date} ) {
 
 
   return (
-    <div>
+    <div id="galleryCard">
       <Container>
           <Col>
-               <Card class='sm'>
-               Image: {image}
-               <br></br>
-                Species: {species}
-               <br></br>
-               Region: {region}
-               <br></br>
-               Date: {date}
-               </Card>
+            <Card className="text-center my-3" style={{ width: '18rem' }}>
+               {image}
+            <br></br>
+            <h4>
+              <b>Species:   </b>
+               {species}
+            <br></br>
+              <b>Region:     </b> 
+                {region}
+            <br></br>
+            </h4>
+                 Date: {date}
+          </Card>
           </Col>
       </Container> 
 
