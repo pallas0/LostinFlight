@@ -22,34 +22,36 @@ function NewLegendModal( {  } ) {
     console.log(loggedInUser)
 
 
-    useEffect(()=> {
+    useEffect(async () => {
         let active = true
-        const fetchData = async () => {
+        // const fetchData = async () => {
             const response = await fetch('/me')
             const newData = await response.json()
+            console.log(newData)
+            const modalResponse = await fetch(`users/${loggedInUser.id}/legend`)
+            const newModalData = await modalResponse.json()
             if (active) {
                 setLoggedInUser(newData)
+                setUserLegend(newModalData)
             }
-        }
-        fetchData()
-        return () => {
-            active = false
-        }
+        // }
+        // fetchData()
+        // return () => {
+        //     active = false
+        // }
     }, [])
-    useEffect(()=> {
-        let active = true
-        const fetchData = async () => {
-            const response = await fetch(`users/${loggedInUser.id}/legend`)
-            const newData = await response.json()
-            if (active) {
-                setUserLegend(newData)
-            }
-        }
-        fetchData()
-        return () => {
-            active = false
-        }
-    }, [loggedInUser])
+    // useEffect(()=> {
+    //     let active = true
+    //     const fetchData = async () => {
+    //         const response = await fetch(`users/${loggedInUser.id}/legend`)
+    //         if (active) {
+    //         }
+    //     }
+    //     fetchData();
+    //     return () => {
+    //         active = false
+    //     }
+    // }, [loggedInUser])
 
     console.log(userLegend)
 

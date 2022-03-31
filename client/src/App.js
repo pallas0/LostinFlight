@@ -37,6 +37,7 @@ function App() {
   function handleNewUserCreate(newCreatedUser){
     setUsername(newCreatedUser)
     setNewLegendShowing(true)
+    console.log(newCreatedUser)
   }
 
   //fetch the logged in user

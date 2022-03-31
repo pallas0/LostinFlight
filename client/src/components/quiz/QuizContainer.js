@@ -51,7 +51,7 @@ console.log(loggedInUser)
         birthday: loggedInUser.birthday,
         legend_id: traitId
     }
-    fetch(`http://127.0.0.1:3000/users/`, {
+    fetch(`/users`, {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
