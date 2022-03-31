@@ -1,35 +1,34 @@
-import React, {useState} from 'react'
-import EntryForm from './EntryForm'
-import Gallery from './Gallery'
+import React, {useState, useEffect} from 'react'
+// import EntryForm from './EntryForm'
+// import Gallery from './Gallery'
 import Modal from "react-bootstrap/Modal";
 
 function BirdCollection({currentuser}) {
-console.log(currentuser.legend.name)
+  // console.log(currentuser)
   const [show, setShow] = useState(true)
-
   function handleClick() {
-    // console.log("click")
+    
   return setShow(false)
   }
-  const user = {
-    id: 1,
-    username: "Jojo",
-    birthday: "1999-12-31",
-  }
+  // const user = {
+  //   id: 1,
+  //   username: "Jojo",
+  //   birthday: "1999-12-31",
+  // }
 
   return (
     <div>
-      Welcome to your Collection {user.username}
-      <EntryForm />
-      <Gallery user={user} />
+      {/* Welcome to your Collection {user.username}
+      <EntryForm /> */}
+      {/* <Gallery user={user} /> */}
       <>
         <Modal show={show}>
           <Modal.Header closeButton onHide={handleClick}>
            Your Result
           </Modal.Header>
           <Modal.Body>
-            <h3>{currentuser.legend.name}</h3>
-            <p>{currentuser.legend.bio}</p>
+            {/* <h3>{currentuser.legend.name}</h3> */}
+            {/* <p>{currentuser.legend.bio}</p> */}
           </Modal.Body>
           <Modal.Footer></Modal.Footer>
         </Modal>

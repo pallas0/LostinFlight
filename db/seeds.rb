@@ -12,7 +12,7 @@ L4 = Legend.create(name: "Alkonost", bio: "You truly are great, half human - hal
 L5 = Legend.create(name: "Sirin", bio: "Half human and half bird, your song draws around you the desires and hopes of humanity, causing those who hear it to follow your wishes at any peril.  Your home on the Vyraj river allows you to sing your melodies to the saints in heaven, your voice is so powerful only the departed can safely listen.  Your friend the Alkonost watches over the day, while you watch over the night, can you keep the skies safe?", trait: "Optimism")
 
 puts "Seeding users"
-U1 = User.create(username: "Jojo", legend_id: L1.id, birthday: "1999-12-31", admin: true)
+# U1 = User.create(username: "Jojo", legend_id: L1.id, birthday: "1999-12-31", admin: true)
 U2 = User.create(username: "Georgie", legend_id: L2.id, birthday: "1999-12-31", admin: true)
 U3 = User.create(username: "Fluff", legend_id: L3.id, birthday: "1999-12-31", admin: true)
 U4 = User.create(username: "Arthur", legend_id: L3.id, birthday: "1999-12-31", admin: true)

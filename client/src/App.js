@@ -17,17 +17,26 @@ import QuizContainer from "./components/quiz/QuizContainer";
 import PreGameModal from "./PreGameModal";
 
 function App() {
-  const userObj = { id: "", username: "", birthday: "", admin: "",  legend: {
-    id: "", 
-    name: "", 
-    bio: "", 
-    trait: ""
-  }};
+  const userObj = {
+    id: " ",
+    username: " ",
+    birthday: " ",
+    admin: " ",
+    legend: {
+      id: " ",
+      name: " ",
+      bio: " ",
+      trait: " ",
+    },
+  };
   const [username, setUsername] = useState({ userObj });
   const [preGameShowing, setPreGameShowing] = useState(false);
   const [newUser, setNewUser] = useState({
-    userObj
-});
+    username: "",
+    birthday: "",
+    image: "",
+    legend_id: "",
+  });
 
   function welcomeNewUser(newUser) {
     setNewUser(newUser);
