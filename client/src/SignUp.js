@@ -9,13 +9,14 @@ function SignUp() {
   const [formData, setFormData] = useState({
     username: "",
     birthday: "",
-    image: ""
+    image: "",
+    legend_id: ""
   }) 
 
-  useEffect(()=>{
-    console.log(formData)
-    console.log(formError)
-  },[formData])
+  // useEffect(()=>{
+  //   console.log(formData)
+  //   console.log(formError)
+  // },[formData])
 
   function handleChange(event) {
     const name = event.target.name;
@@ -25,20 +26,14 @@ function SignUp() {
         [name]: value,
       });
     }
-    function handleChangeValidator(event) {
-      const name = event.target.name;
-      let value = event.target.value;
-      const regex = new RegExp('[^0-9A-Za-z\xC0-\xFF]')
+
+  function handleChangeValidator(event) {
+    const name = event.target.name;
+    let value = event.target.value;
+    const regex = new RegExp('[^0-9A-Za-z\xC0-\xFF]')
       
-      
-        const found = value.match(regex)
-        if (found) {
-          setFormError(true)
-        } else {
-          setFormError(false)
-        }
-        console.log(found)
-      
+    const found = value.match(regex)
+    found ? setFormError(true) : setFormError(false)
       setFormData({
           ...formData,
           [name]: value,
@@ -51,7 +46,8 @@ function SignUp() {
     console.log(formData);
   }
   const errStyle = {
-    color: "#CC9D74"
+    color: "#FFC4DC",
+    fontSize: "75%"
   }
 
   const enabledButton = <Button variant="outline-dark" type="submit" onclick={handleSubmit} >Submit</Button>
@@ -70,7 +66,6 @@ function SignUp() {
             value={formData.username} 
             onChange={handleChangeValidator}
             />
-
           </Form.Group>
           <Form.Group controlId="signupform.birthday">
             <Form.Label>Birthday:</Form.Label>

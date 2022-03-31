@@ -1,11 +1,30 @@
 import React, {useState} from 'react'
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 function Login({onLogin}) {
   const [username, setUsername] = useState("")
+  const [userError, setUserError] = useState(false)
 
-  function handleSubmit(e) {
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   fetch("/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ username }),
+  //   })
+  //   .then((r) => r.json())
+  //   .catch((error) => console.log(error))
+  //   .then((user) => onLogin(user))
+  // }
+
+
+  function handleSubmit2(e) {
     e.preventDefault();
-    console.log("submit")
+    console.log(e)
     fetch("/login", {
       method: "POST",
       headers: {
@@ -13,27 +32,60 @@ function Login({onLogin}) {
       },
       body: JSON.stringify({ username }),
     })
-    .then((r) => r.json())
-    .then((user) => onLogin(user))
+    .then((response) => {
+      if (response.ok) { 
+       return response.json();
+      }
+      return Promise.reject(response); 
+    })
+    .then((user) => { 
+      console.log(user); 
+      onLogin(user)
+      const fieldToReset = e.target.form[0]
+      fieldToReset.value=""
+      setUserError(false)
+    })
+    .catch((error) => {
+      renderUserError(error)
+    });
   }
 
+
+  
+function renderUserError(error){
+  setUserError(true)
+  console.log('Oops... ', error.statusText)
+}
+//if click back on the field reset userError to false
+function onFocus(e) {
+  setUserError(false)
+}
+//set custom style for the background of the input
+const fieldStyle =  userError ? "#FFC4DC" : ""
+const inputStyle = {
+  background: fieldStyle
+}
+const errStyle = {
+  color: "#FFC4DC",
+  fontSize: "75%"
+}
   return (
     <div className='welcomePageForm'>
-         <form>
-            <label>
-              {/* <span style={{text-align:center }}>
-              Login
-              </span> */}
-              <br></br>
-                Name:
-                <br></br>
-                <input type='text' 
+      <Container fluid="md">
+         <Form id="signin">
+            <Form.Label>Username:</Form.Label>
+            <Form.Group controlId='signin.username'>
+                <Form.Control type='text' 
+                onFocus={onFocus}
                 name={username}
-                onChange={(e) => setUsername(e.target.value)} />
-            </label>
-        </form>
-     <button onClick={handleSubmit}>Login</button>
-        
+                onChange={(e) => setUsername(e.target.value)}
+                style={inputStyle} />
+            {userError ? <Form.Label style={errStyle}>error</Form.Label> : null}
+
+            </Form.Group>
+            <Button variant="outline-dark" onClick={handleSubmit2}>Login</Button>
+        </Form>
+      </Container>
     </div>
   )
 }

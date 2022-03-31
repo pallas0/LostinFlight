@@ -14,13 +14,16 @@ function NavBar( {onLogout, user} ) {
             method: "DELETE",
         }).then(() => onLogout(null));
     }
-console.log(loggedInUser)
+
+const okLogOutBtn = <button onClick={handleLogout}>Logout</button>
+const noLogOutBtn = <button disabled variant={"light"}>Logout</button>
   return (
     <div >
     <Navbar bg="navBar" fixed='top'>
       <Container >
         <Nav className="me-auto">
-          <button onClick={handleLogout}>Logout</button>
+          {loggedInUser ? okLogOutBtn : noLogOutBtn}
+          {loggedInUser ? <h2>Welcome {loggedInUser.username}</h2> : <h2>Welcome!  Sign-in Below</h2>}
         </Nav>
         {/* {user ? <h2>Welcome {loggedInUser.username}</h2> : <h2>Welcome</h2>} */}
        </Container>
