@@ -5,6 +5,11 @@ class BirdObservationsController < ApplicationController
         render json: user.bird_observations
     end
 
+    def create
+        user = 
+        render
+    end
+
     private
 
     def find_user

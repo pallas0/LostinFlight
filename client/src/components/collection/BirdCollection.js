@@ -6,52 +6,118 @@ import Row from 'react-bootstrap/esm/Row'
 import Col from 'react-bootstrap/esm/Col'
 
 
-function BirdCollection() {
+function BirdCollection( {user} ) {
 
   let birdObservationObj = {
+    image: "",
     region: "",
-    species: ""}
+    species: "",
+    date: ""
+  }
+let loggedInUserObj = {
+  id: "",
+  username: "",
 
+}
+const [loggedInUser, setLoggedInUser] = useState([loggedInUserObj])
 const [ birds, setBirds] = useState([birdObservationObj])
 
-  const user = {
-    id: 1,
-    username: "Jojo",
-    birthday: "1999-12-31",
+useEffect (() =>{ 
+  setLoggedInUser(user)
+},[ user ] )
 
-     bird_observation:{
-          region: "North West",
-          species: "Robin",
-          image:"https://i.etsystatic.com/11197028/r/il/fb9dd1/2013294885/il_1588xN.2013294885_bcw7.jpg",
-          date: "2022-2-22"
-         }
-  }
+// console.log(loggedInUser)
+// console.log(loggedInUser.id)
 
-useEffect (() => {
-  fetch(`http://localhost:4000/users/${user.id}/collection`)
-  .then(r => r.json())
-  // .then(data => console.log(data))
-  .then(setBirds)
-}, [])
 
-const birdCardRender = birds.map((bird) => {
-  return <Gallery
-    key = {bird.id}
-    image = {bird.image}
-    species = {bird.species}
-    region = {bird.region}
-    date = {bird.date}
-    />
-    })
+  // useEffect (() => {
+  //   fetch(`http://localhost:4000/users/${loggedInUser.id}/collection`)
+  //   .then(r => r.json())
+  //   // .then(data => console.log(data))
+  //   .then(setBirds)
+  // }, [])
   
+  //fetching the user data
+//   useEffect(() => {
+//     let active = true;
+    
+//     const fetchUser = async () => {
+//       const resp = await fetch(`http://localhost:4000/me`)
+//       const loggedInUserData = await resp.json();
+//       if (active) {
+//         setLoggedInUser(loggedInUserData);
+//       };
+//     }
+//     fetchUser();
+//     return () => {
+//       active = false;
+//     };
+//   }, [user])
+// //fetching the bird data
+//   useEffect (() => { 
+//     let active = true;
+
+//     const fetchCollection = async () => {
+//       const resp = await fetch(`http://localhost:4000/users/${loggedInUser.id}/collection`)
+//       const collectionData = await resp.json();
+//       if (active){
+//         setBirds(collectionData);
+//         // setBirds(loggedInUser);
+//         // amIWorking(collectionData)
+//         console.log(loggedInUser)
+//         console.log(collectionData)
+//         console.log(resp)
+//         // console.log(loggedInUser)
+//       }}
+//       fetchCollection();
+//       return () => {
+//         active = false;
+//       }
+    
+//     // console.log(fetchCollection() )
+
+//   },[])
 console.log(birds)
+
+  // function amIWorking (collectionData) {
+  //   console.log('trying to set birds')
+  // }
+
+  // console.log(birds)
+  
+  
+  // useEffect(() => {
+  //   fetch("/me").then((response) => {
+  //     if (response.ok) {
+  //       response.json().then((name) => setLoggedInUser(name));
+  //     }
+  //   })
+  //   return () =>  {
+  //     console.log("gibberish  here ")
+  
+  // }
+  // }, []);
+
+// collects the bird data 
+// const birdCardRender = birds.map((bird) => {
+//   // console.log(bird)
+//   return <Gallery
+//     key = {bird.id}
+//     image = {bird.image}
+//     species = {bird.species}
+//     region = {bird.region}
+//     date = {bird.date}
+//     />
+//     })
+  
+// console.log(birds)
 
   return (
     <div>
-      Welcome to your Collection {user.username}
-        <EntryForm />
+      Welcome to your Collection 
+        <EntryForm  />
         <Col>
-        {birdCardRender}
+        {/* {birdCardRender} */}
         </Col>
     </div>
   )

@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/esm/Col'
 function Gallery( {species, region, image, date} ) {
 
 
+
+
   return (
     <div>
       <Container>

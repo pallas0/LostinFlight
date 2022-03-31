@@ -51,7 +51,7 @@ function App() {
       <NavBar onLogout={setUsername} user={username}/>
       <Switch>
         <Route path='/collection' >
-          <BirdCollection />
+          <BirdCollection user={username} />
         </Route>
         <Route path='/quiz' >
           <QuizContainer user={newUser} onNewUserCreate={handleNewUserCreate}/>  

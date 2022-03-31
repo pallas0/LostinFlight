@@ -1,11 +1,16 @@
 import React, { useState }  from 'react'
 
-function EntryForm() {
+function EntryForm( ) {
+
+
 const [formData, setFormData] = useState({
     species: "",
     region: "",
-    image: ""
+    image: "",
+    
 })
+
+
 
 function handleChange(event) {
     const name = event.target.name;
@@ -16,15 +21,30 @@ function handleChange(event) {
       });
     }
 
+
+
+
+
+
 function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
+    fetch( `http://localhost:4000/bird_obsersavations`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    })
+        .then(r => r.json())
+        .then(data => console.log(data))
     }
 
   return (
      
         <div>
             EntryForm
+            {/* {loggedInUser.username} */}
             <form onSubmit={handleSubmit}>
                 Species:
                 <input name="species" type="text" onChange={handleChange}></input>
