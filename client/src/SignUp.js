@@ -18,6 +18,7 @@ function SignUp() {
   //   console.log(formError)
   // },[formData])
 
+//handle birthday input
   function handleChange(event) {
     const name = event.target.name;
     let value = event.target.value;
@@ -27,12 +28,16 @@ function SignUp() {
       });
     }
 
+  // validate input field for letters and nums only
+  // if not valid set error to true
   function handleChangeValidator(event) {
     const name = event.target.name;
     let value = event.target.value;
+    //use a regex 
     const regex = new RegExp('[^0-9A-Za-z\xC0-\xFF]')
-      
+    //make a new array to hold matches from the regex  
     const found = value.match(regex)
+    //if the array exists then set error to true, else false
     found ? setFormError(true) : setFormError(false)
       setFormData({
           ...formData,
@@ -41,17 +46,23 @@ function SignUp() {
 
       }
 
+  // this is our final point rn 10:19 3/30 - it needs to open a modal window, send the formData
+  // to the modal, and carry it over to the Quiz
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
   }
+
+  //custom style for error text
   const errStyle = {
     color: "#FFC4DC",
     fontSize: "75%"
   }
 
+  // two different button styles to render
   const enabledButton = <Button variant="outline-dark" type="submit" onclick={handleSubmit} >Submit</Button>
   const disabledButton = <Button variant="light" disabled >Submit</Button>
+
   return (
     <div>
       <Container fluid="md">
