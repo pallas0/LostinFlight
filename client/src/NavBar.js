@@ -1,16 +1,20 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button'
+import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
-function NavBar( {onLogout} ) {
+function NavBar( {onLogout, user} ) {
+  const [loggedInUser, setLoggedInUser] = useState({})
+
+    useEffect(() => {
+      setLoggedInUser(user)
+    }, [user])
     function handleLogout() {
         fetch("/logout", {
             method: "DELETE",
         }).then(() => onLogout(null));
     }
-
+console.log(loggedInUser)
   return (
     <div >
     <Navbar bg="navBar" fixed='top'>
@@ -18,7 +22,7 @@ function NavBar( {onLogout} ) {
         <Nav className="me-auto">
           <button onClick={handleLogout}>Logout</button>
         </Nav>
-        {/* <h2>Welcome {state.username}</h2> */}
+        {/* {user ? <h2>Welcome {loggedInUser.username}</h2> : <h2>Welcome</h2>} */}
        </Container>
     </Navbar>
     </div>

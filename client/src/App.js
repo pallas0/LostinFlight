@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div>
-      <NavBar onLogout={setUsername}/>
+      <NavBar onLogout={setUsername} user={username}/>
       <Switch>
         <Route path='/collection' >
           <BirdCollection />

@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header.js';
 import SignUp from './SignUp.js';
 import Login from './Login.js';
 import Container from 'react-bootstrap/esm/Container';
