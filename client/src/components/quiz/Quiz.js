@@ -79,15 +79,14 @@ function Quiz( { questions, onProfileUpdate } ) {
       const arrayOfTraitResult = Object.keys(state).filter(key => state[key] === max)
 
         if (arrayOfTraitResult.length > 1) {
-          // writeWinner(Math.floor(Math.random() * 6))
-          // return history.push("/collection")
+
           console.log("tie breaker")
         } else {
           const discoveredTrait = arrayOfTraitResult[0]
           console.log("you win a " + arrayOfTraitResult[0])
           writeWinner(discoveredTrait)
           
-          return history.push("/collection")
+          return history.push("/")
         }
         }
 

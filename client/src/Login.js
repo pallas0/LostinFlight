@@ -26,7 +26,7 @@ function Login( { onLogin } ) {
 // for problems coming back from fetch
   function handleSubmit2(e) {
     e.preventDefault();
-    console.log(e)
+    // console.log(e)
     fetch("/login", {
       method: "POST",
       headers: {
@@ -44,14 +44,15 @@ function Login( { onLogin } ) {
     // if resp.ok then we proceed to set onLogin
     // reset the field text, and setUserError to false
     .then((user) => { 
-      console.log(user); 
-      onLogin(user)
+      console.log("just logged in: ", user); 
       const fieldToReset = e.target.form[0]
       fieldToReset.value=""
       setUserError(false)
+      onLogin(user)
     })
     // if there is an error then send the error info to a handler
     .catch((error) => {
+      console.log(username)
       renderUserError(error)
     });
   }

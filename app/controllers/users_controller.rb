@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     end 
   end
 
+  # to get user legend
+  def user_legend
+    user = User.find_by!(id: session[:user_id])
+    render json: user.legend
+  end
+
   private 
   def find_user
     User.find_by!(id: params[:id])

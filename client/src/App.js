@@ -51,8 +51,7 @@ function App() {
 
   return (
     <div>
-          <button onClick={() => setNewLegendShowing(true)}>show me</button>
-      {/* <NavBar onLogout={setUsername} user={username}/> */}
+      <NavBar onLogout={setUsername} user={username}/>
       <Switch>
         <Route path='/collection' >
           <BirdCollection />
@@ -64,7 +63,9 @@ function App() {
           <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser}/>
         </Route> 
       </Switch>
+          {/* <button onClick={() => setNewLegendShowing(true)}>show me</button> */}
       {preGameShowing ? <PreGameModal newUser={newUser}/> : null}
+      {newLegendShowing ? <NewLegendModal /> : null}
     </div>
 
   );
