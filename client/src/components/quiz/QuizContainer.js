@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Quiz from "./Quiz";
 
-function QuizContainer( { user } ) {
-  // const {id, name} = user
+function QuizContainer( { user, onNewUserCreate } ) {
      let emptyobj = {
        id: "",
        questionText: "",
@@ -19,7 +18,7 @@ function QuizContainer( { user } ) {
     setLoggedInUser(user)
   }, [user])
 
-// console.log(loggedInUser)
+console.log(loggedInUser)
 
   useEffect(() => {
     fetch("http://127.0.0.1:3000/quiz_questions")
@@ -51,19 +50,21 @@ function QuizContainer( { user } ) {
         }
     }
     const traitId = parseTrait(discoveredTrait)
-    // console.log(traitId)
-    const updates = {
+
+    const userToWrite = {
+        username: loggedInUser.username,
+        birthday: loggedInUser.birthday,
         legend_id: traitId
     }
-    fetch(`http://127.0.0.1:3000/users/${loggedInUser.id}`, {
-        method: "PATCH",
+    fetch(`http://127.0.0.1:3000/users/`, {
+        method: "POST",
         headers: {
         "Content-Type": "application/json",
         },
-        body: JSON.stringify(updates),
+        body: JSON.stringify(userToWrite),
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => onNewUserCreate(data))
   }
 
   return (

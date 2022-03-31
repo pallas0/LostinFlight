@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     user.update!(user_params)
     render json: user, status: :ok
   end
+  def create
+    user = User.create!(user_params)
+    render json: user, status: :created
+  end
 
   # This is for session staying logged in
   def show
@@ -25,6 +29,6 @@ class UsersController < ApplicationController
     User.find_by!(id: params[:id])
   end
   def user_params
-    params.permit(:legend_id)
+    params.permit(:legend_id, :username, :birthday, :image)
   end
 end

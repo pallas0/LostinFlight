@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import { useHistory } from "react-router-dom"
 
 
 function PreGameModal( { newUser } ) {
@@ -8,13 +9,15 @@ function PreGameModal( { newUser } ) {
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
+    let history = useHistory()
+    console.log(newUser)
+
+    function handleStartQuiz() {
+        setShow(false)
+        return history.push("/quiz")
+    }
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Launch static backdrop modal
-        </Button>
-  
         <Modal
           show={show}
           onHide={handleClose}
@@ -22,17 +25,17 @@ function PreGameModal( { newUser } ) {
           keyboard={false}
         >
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            {/* <Modal.Title>Modal title</Modal.Title> */}
           </Modal.Header>
           <Modal.Body>
-            I will not close if you click outside me. Don't even try to press
-            escape key.
+            <h3>Welcome {newUser.username}</h3>
+            <p>Before you can join the flock we need to learn a bit more about you.</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
+            <Button variant="light" onClick={handleClose}>
+              I made a mistake, take me back!
             </Button>
-            <Button variant="primary">Understood</Button>
+            <Button variant="outline-dark" onClick={handleStartQuiz}>Let's Go!</Button>
           </Modal.Footer>
         </Modal>
       </>

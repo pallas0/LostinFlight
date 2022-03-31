@@ -32,6 +32,9 @@ function App() {
     setPreGameShowing(true)
   }
 
+  function handleNewUserCreate(newCreatedUser){
+    setUsername(newCreatedUser)
+  }
   console.log(newUser, preGameShowing)
 
   useEffect(() => {
@@ -42,6 +45,7 @@ function App() {
     });
   }, []);
 
+
   return (
     <div>
       <NavBar onLogout={setUsername} user={username}/>
@@ -50,13 +54,13 @@ function App() {
           <BirdCollection />
         </Route>
         <Route path='/quiz' >
-          <QuizContainer user={newUser}/>  
+          <QuizContainer user={newUser} onNewUserCreate={handleNewUserCreate}/>  
         </Route>
         <Route exact path='/'>
           <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser}/>
         </Route> 
       </Switch>
-      {preGameShowing ? <PreGameModal /> : null}
+      {preGameShowing ? <PreGameModal newUser={newUser}/> : null}
     </div>
 
   );

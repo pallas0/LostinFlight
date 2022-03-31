@@ -52,7 +52,7 @@ function SignUp( { onNewSignUp } ) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
-    if (formData.username.length <= 5){
+    if (formData.username.length <= 4){
       console.log("name too short")
       setFormError(true)
       return null

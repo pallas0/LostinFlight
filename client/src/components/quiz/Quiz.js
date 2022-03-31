@@ -7,6 +7,7 @@ function Quiz( { questions, onProfileUpdate } ) {
   const [inGame, setInGame] = useState(true)
   const thequestions = questions.map((eachquestion) => eachquestion);
   let history = useHistory()
+  
 
   // State reducer for attribute tally
   const initialState = {

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :bird_observations
   # resources :quizzes, only: [:index, :show, :update, :create, :destroy]
   resources :legends
-  resources :users, only: [:index, :show, :update]
+  resources :users, only: [:index, :show, :update, :create]
   post "/login", to: "sessions#create"
   get "/me", to: "users#show"
   delete "/logout", to: "sessions#destroy"
