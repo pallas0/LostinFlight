@@ -14,6 +14,8 @@ function BirdCollection() {
 
 const [ birds, setBirds] = useState([birdObservationObj])
 
+
+
   const user = {
     id: 1,
     username: "Jojo",
