@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-// import styled, {keyframes} from 'styled-components' 
+
 
 
 function WelcomePage( { onLogin, welcomeNewUser } ) {
@@ -40,14 +40,7 @@ function WelcomePage( { onLogin, welcomeNewUser } ) {
 	    <div class="cloud x3"></div>
     	<div class="cloud x4"></div>
 	    <div class="cloud x5"></div>
-
-      {/* <div class="cloud x1"></div>
-	    <div class="cloud x5"></div> */}
-  
   </div>
-  
-
-
   )
 }
 
