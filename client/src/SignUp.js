@@ -71,7 +71,7 @@ function SignUp( { onNewSignUp } ) {
 
   //custom style for error text
   const errStyle = {
-    color: "#FFC4DC",
+    color: "#FF3F68",
     fontSize: "75%"
   }
 

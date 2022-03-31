@@ -79,7 +79,7 @@ function Quiz( { questions, onProfileUpdate } ) {
           const discoveredTrait = arrayOfTraitResult[0]
           console.log("you win a " + arrayOfTraitResult[0])
           writeWinner(discoveredTrait)
-          return history.push("/")
+          return history.push("/collection")
         }
         }
 

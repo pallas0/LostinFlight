@@ -32,9 +32,9 @@ function PreGameModal( { newUser } ) {
             <p>Before you can join the flock we need to learn a bit more about you.</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="light" onClick={handleClose}>
+            {/* <Button variant="light" onClick={handleClose}>
               I made a mistake, take me back!
-            </Button>
+            </Button> */}
             <Button variant="outline-dark" onClick={handleStartQuiz}>Let's Go!</Button>
           </Modal.Footer>
         </Modal>
