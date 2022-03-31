@@ -14,11 +14,29 @@ import { Route, Switch } from "react-router-dom";
 // import Login from './Login';
 import BirdCollection from './components/collection/BirdCollection';
 import QuizContainer from './components/quiz/QuizContainer';
+import PreGameModal from './PreGameModal';
 
 
 function App() {
   const [username, setUsername] = useState(null);
+  const [preGameShowing, setPreGameShowing] = useState(false)
+  const [newUser, setNewUser] = useState({
+    username: "",
+    birthday: "",
+    image: "",
+    legend_id: ""
+  })
 
+  function welcomeNewUser(newUser) {
+    setNewUser(newUser)
+    setPreGameShowing(true)
+  }
+
+  function handleNewUserCreate(newCreatedUser){
+    setUsername(newCreatedUser)
+  }
+
+  //fetch the logged in user
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -30,18 +48,19 @@ function App() {
 
   return (
     <div>
-      <NavBar onLogout={setUsername}/>
+      <NavBar onLogout={setUsername} user={username}/>
       <Switch>
         <Route path='/collection' >
           <BirdCollection />
         </Route>
         <Route path='/quiz' >
-          <QuizContainer />  
+          <QuizContainer user={newUser} onNewUserCreate={handleNewUserCreate}/>  
         </Route>
         <Route exact path='/'>
-          <WelcomePage onLogin={setUsername}/>
+          <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser}/>
         </Route> 
       </Switch>
+      {preGameShowing ? <PreGameModal newUser={newUser}/> : null}
     </div>
 
   );
