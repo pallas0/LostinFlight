@@ -48,7 +48,6 @@ function QuizContainer({ user, onNewUserCreate }) {
     const traitId = parseTrait(discoveredTrait);
 
     const userToWrite = {
-<<<<<<< HEAD
       username: loggedInUser.username,
       birthday: loggedInUser.birthday,
       legend_id: traitId,
@@ -56,15 +55,6 @@ function QuizContainer({ user, onNewUserCreate }) {
     fetch(`http://127.0.0.1:3000/users/`, {
       method: "POST",
       headers: {
-=======
-        username: loggedInUser.username,
-        birthday: loggedInUser.birthday,
-        legend_id: traitId
-    }
-    fetch(`/users`, {
-        method: "POST",
-        headers: {
->>>>>>> main
         "Content-Type": "application/json",
       },
       body: JSON.stringify(userToWrite),
@@ -74,20 +64,9 @@ function QuizContainer({ user, onNewUserCreate }) {
   }
 
   return (
-<<<<<<< HEAD
-    <>
-      <div>
-        <Quiz onProfileUpdate={updateProfile} questions={questions} />
-      </div>
-      <div>
-        <QuizResultsModal />
-      </div>
-    </>
-=======
     <div>
       <Quiz onProfileUpdate={updateProfile} questions={questions} />
     </div>
->>>>>>> main
   );
 }
 

@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# QuizUser.destroy_all
-Legend.destroy_all
-User.destroy_all
-# Quiz.destroy_all
-User.destroy_all
-BirdObservation.destroy_all
-
-=======
->>>>>>> main
 puts "...seeding Legends..."
 L1 = Legend.create(name: "Phoenix", bio: "The Phoenix is an immortal bird with a cyclical life span; it ages, dies, then is reborn from its ashes.  Associated with the sun and new beginnings, the phoenix is associated with resilience, ambition, and bravery.  The word ‘phoenix’ was used in 12th century English to describe an ‘excellent person’. Younger variations of this personality may display the negative qualities of these traits, with ambition translating to brash impulsiveness, and bravery as arrogance, but the phoenix’s innate sense of curiosity and desire for improvement allows these to be quickly refined.  Natural leaders and pioneers of change, the phoenix may often be found questioning systems, in quickly rising industries, or inspiring those around them.
 ", trait: "Ambition")
@@ -15,10 +5,7 @@ L2 = Legend.create(name: "Caladrius", bio: "You are a Caladrius! These pure-whit
 L3 = Legend.create(name: "Rokh" , bio: "You are a Rokh! This enormous bird of prey is known for its strength and assertiveness in action. This bird appears in Asian mythology and Indian Sanskrit epics, derived from the Spanish word “rocho”. Strong enough to carry small elephants, this bird is praised for saving sailors stranded at sea. However, if crossed, there will be vengeance to follow.", trait: "Assertiveness")
 L4 = Legend.create(name: "Alkonost", bio: "You truly are great, half human - half bird, your song is so enchanting it causes those around you to forget earthly desires and want nothing more as long as they live. Your powers are not only known to the realm of humans, nature too acknowledges your strength, hurling waves across the seas to protect your nascent young as they emerge from their shell on the beaches of the paradise you call home.  Be aware, your counterpart the Sirin may need your help - are you prepared to show your greatness?", trait: "Creativity")
 L5 = Legend.create(name: "Sirin", bio: "Half human and half bird, your song draws around you the desires and hopes of humanity, causing those who hear it to follow your wishes at any peril.  Your home on the Vyraj river allows you to sing your melodies to the saints in heaven, your voice is so powerful only the departed can safely listen.  Your friend the Alkonost watches over the day, while you watch over the night, can you keep the skies safe?", trait: "Optimism")
-<<<<<<< HEAD
 
-=======
->>>>>>> main
 puts "Seeding users"
 # U1 = User.create(username: "Jojo", legend_id: L1.id, birthday: "1999-12-31", admin: true)
 U2 = User.create(username: "Georgie", legend_id: L2.id, birthday: "1999-12-31", admin: true)

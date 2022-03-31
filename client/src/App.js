@@ -12,21 +12,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 // import SignUp from './SignUp';
 // import Login from './Login';
-<<<<<<< HEAD
-import BirdCollection from "./components/collection/BirdCollection";
-import QuizContainer from "./components/quiz/QuizContainer";
-import PreGameModal from "./PreGameModal";
 
-function App() {
-  const userObj = { id: "", username: "", birthday: "", admin: "",  legend: {
-    id: "", 
-    name: "", 
-    bio: "", 
-    trait: ""
-  }};
-  const [username, setUsername] = useState({ userObj });
-  const [preGameShowing, setPreGameShowing] = useState(false);
-=======
 import BirdCollection from './components/collection/BirdCollection';
 import QuizContainer from './components/quiz/QuizContainer';
 import PreGameModal from './PreGameModal';
@@ -37,7 +23,6 @@ function App() {
   const [username, setUsername] = useState(null);
   const [preGameShowing, setPreGameShowing] = useState(false)
   const [newLegendShowing, setNewLegendShowing] = useState(false)
->>>>>>> main
   const [newUser, setNewUser] = useState({
     userObj
 });
@@ -47,18 +32,9 @@ function App() {
     setPreGameShowing(true);
   }
 
-<<<<<<< HEAD
-  function handleNewUserCreate(newCreatedUser) {
-    setUsername(newCreatedUser);
-=======
   function handleNewUserCreate(newCreatedUser){
     setUsername(newCreatedUser)
     setNewLegendShowing(true)
-<<<<<<< HEAD
->>>>>>> main
-=======
-    console.log(newCreatedUser)
->>>>>>> main
   }
 
   //fetch the logged in user
@@ -72,16 +48,8 @@ function App() {
 
   return (
     <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <NavBar onLogout={setUsername} user={username} />
-=======
           <button onClick={() => setNewLegendShowing(true)}>show me</button>
       {/* <NavBar onLogout={setUsername} user={username}/> */}
->>>>>>> main
-=======
-      <NavBar onLogout={setUsername} user={username}/>
->>>>>>> main
       <Switch>
         <Route path="/collection">
           <BirdCollection currentuser={username} />
@@ -93,13 +61,7 @@ function App() {
           <WelcomePage onLogin={setUsername} welcomeNewUser={welcomeNewUser} />
         </Route>
       </Switch>
-<<<<<<< HEAD
       {preGameShowing ? <PreGameModal newUser={newUser} /> : null}
-=======
-          {/* <button onClick={() => setNewLegendShowing(true)}>show me</button> */}
-      {preGameShowing ? <PreGameModal newUser={newUser}/> : null}
-      {newLegendShowing ? <NewLegendModal /> : null}
->>>>>>> main
     </div>
   );
 }
