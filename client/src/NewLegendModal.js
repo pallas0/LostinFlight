@@ -44,9 +44,10 @@ function NewLegendModal( {  } ) {
           <Modal.Body>
             <h3>Congratulations {loggedInUser.username}, I knew you'd soar high!</h3>
             <p>You are a {userLegend.name} </p>
+            <p>{userLegend.bio}</p>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="outline-dark" onClick={handleOkClick}>Amazing!</Button>
+            <Button variant="outline-dark" onClick={handleOkClick}>Sign Up + Play Again!</Button>
           </Modal.Footer>
         </Modal>
       </>
