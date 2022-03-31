@@ -23,9 +23,8 @@ const noLogOutBtn = <button disabled variant={"light"}>Logout</button>
       <Container >
         <Nav className="me-auto">
           {loggedInUser ? okLogOutBtn : noLogOutBtn}
-          {loggedInUser ? <h2>Welcome {loggedInUser.username}</h2> : <h2>Welcome!  Sign-in Below</h2>}
         </Nav>
-        {/* {user ? <h2>Welcome {loggedInUser.username}</h2> : <h2>Welcome</h2>} */}
+          {loggedInUser ? <h2>Welcome {loggedInUser.username} </h2> : <h2>Welcome! Sign-in Below!</h2>}
        </Container>
     </Navbar>
     </div>

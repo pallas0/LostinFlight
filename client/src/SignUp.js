@@ -66,7 +66,7 @@ function SignUp() {
   return (
     <div>
       <Container fluid="md">
-        <Form><h2>Sign Up</h2>
+        <Form>
           <Form.Group controlId="signupform.username">
             <Form.Label>Username:</Form.Label>
             {formError ? <Form.Label style={errStyle}>letters and numbers only</Form.Label> : null }

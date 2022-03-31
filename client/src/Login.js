@@ -91,7 +91,7 @@ const errStyle = {
                 style={inputStyle} />
                 {userError ? <Form.Label style={errStyle}>error</Form.Label> : null}
             </Form.Group>
-            <Button variant="outline-dark" onClick={handleSubmit2}>Login</Button>
+            <Button variant="outline-dark" type="submit" onClick={handleSubmit2}>Login</Button>
         </Form>
       </Container>
     </div>
