@@ -66,21 +66,19 @@ const errStyle = {
   fontSize: "75%"
 }
   return (
-    <div className='welcomePageForm'>
-      <Container fluid="md">
-         <Form id="signin">
-            <Form.Label>Username:</Form.Label>
-            <Form.Group controlId='signin.username'>
-                <Form.Control type='text' 
+    <div className='welcome-page-form'>
+         <form>
+            <label>Username:</label>
+  
+                <input type='text' 
                 onFocus={onFocus}
                 name={username}
                 onChange={(e) => setUsername(e.target.value)}
                 style={inputStyle} />
-                {userError ? <Form.Label style={errStyle}>error</Form.Label> : null}
-            </Form.Group>
-            <Button variant="outline-dark" type="submit" onClick={handleSubmit2}>Login</Button>
-        </Form>
-      </Container>
+                {userError ? <label style={errStyle}>error</label> : null}
+            <button variant="outline-dark" type="submit" onClick={handleSubmit2}>Login</button>
+        </form>
+
     </div>
   )
 }
